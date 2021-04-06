@@ -1,7 +1,19 @@
 # PortableDictionaryOSGi
-group project for Software Architecture  
+Group project for Software Architecture Assignment 01   
+Topic: **PortableDictionary With OSGi**
+<pre>
+Scenario 01: Dictionary usage  
+  Producer: Word Dictionary  
+  Consumer: Addnew, edit, getall, remove  
+Scenario 02: Translation  
+  Producer: Translator + Word Dictionary  
+  Consumer: Translation, mapping words  
+Scenario 03: Sentence Checker  
+  Producer: ?? + Word Dictionary  
+  Consumer: Checking Sentences  
+</pre>
 
-Task List:
+### Task List:
 - [x] WordDictionary
    - [ ] English Dictionary
    - [ ] Sinhala Dictionary
@@ -14,8 +26,9 @@ Task List:
    - [x] Interaction Terminal
 - [ ] English Language Sentence Checker 
 - [ ] Add Apache Felix framework
-- [ ] Add OSGi Activators
+- [ ] Add OSGi Activator classes
 - [ ] Add Manifest files
+- [ ] Generate jar files
 
 |Allocation|contributor|
 |-|-|
