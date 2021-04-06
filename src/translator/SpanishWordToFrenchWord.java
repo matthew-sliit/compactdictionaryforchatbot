@@ -1,0 +1,80 @@
+package translator;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+
+import translator.service.WordTranslator;
+import worddict.FrenchDictionary;
+import worddict.SpanishDictionary;
+import worddict.commons.DictionaryException;
+import worddict.service.WordDictionary;
+
+public class SpanishWordToFrenchWord implements WordTranslator {
+	//HasMap<Spanish word,French word> unoyuno
+	HashMap<String, String> unoyuno = new HashMap<String, String>();
+	WordDictionary espanola = null;
+	WordDictionary francis = null;
+	
+	public SpanishWordToFrenchWord() {
+		// TODO Auto-generated constructor stub
+	}
+	
+	@Override
+	public void addNewMap(String fromWord, String toWord) throws DictionaryException {
+		selfUpdate();
+		if(unoyuno.isEmpty()) {
+			//error
+		}
+		if(unoyuno.get(toWord)!="+unmapped"){
+			//already mapped, edit?
+		}
+		if(!francis.hasWord(toWord)) {
+			//prevent map to undefined word, toWord by default is +unmapped
+		}else {
+			unoyuno.put(fromWord, toWord);
+		}
+	}
+
+	@Override
+	public ArrayList<String> getAllUnMappedWords() {
+		selfUpdate();//check for new words beforehand
+		ArrayList<String> unmappedWords = new ArrayList<String>();
+		for(Map.Entry<String, String> entry : unoyuno.entrySet()) {
+			if(entry.getValue().equals("+unmapped")) {
+				unmappedWords.add(entry.getKey());
+			}
+		}
+		return unmappedWords;
+	}
+
+	@Override
+	public HashMap<String, String> getAllWords() {
+		selfUpdate();
+		return unoyuno;
+	}
+	
+	private void selfUpdate() {
+		espanola = new SpanishDictionary();
+		francis = new FrenchDictionary();
+		try {
+			for(String word : espanola.getAllWords()) {
+				if(!unoyuno.containsKey(word)) {
+					unoyuno.put(word, "+unmapped");//new word
+				}else {
+					if(!francis.hasWord(unoyuno.get(word))) {
+						unoyuno.put(word, "+unmapped");//word removed from French dictionary
+					}
+				}
+			}
+		} catch (DictionaryException e) {
+			//empty dictionary?
+		}
+	}
+
+	@Override
+	public String getTranslatedWord(String fromWord) {
+		return unoyuno.get(fromWord);//returns value for specific key
+	}
+	
+}
