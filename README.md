@@ -29,7 +29,7 @@ Scenario 03: Sentence Checker
 - [ ] Add OSGi Activator classes
 - [ ] Add Manifest files
 - [ ] Generate jar files
-
+### Allocation:  
 |Allocation|contributor|
 |-|-|
 |English Dictionary|[Amanda](https://github.com/amandaaaim)|
@@ -37,7 +37,7 @@ Scenario 03: Sentence Checker
 |Translator|[Vidura](https://github.com/vidurasathsara99)|
 |Sentence Checker|Me|
 
-Initial Project Architecture:
+### Initial Project Architecture:  
 ```bash
 ├───bin
 │       gson-2.8.6.jar
