@@ -8,7 +8,7 @@ import worddict.service.WordDictionary;
 public class EnglishDictionary implements WordDictionary {
 
 	@Override
-	public void addNewWord(String word, String type, String meaning) throws Exception {
+	public void addNewWord(String word, String type, String meaning) throws DictionaryException {
 		// TODO Auto-generated method stub
 
 	}
@@ -45,6 +45,18 @@ public class EnglishDictionary implements WordDictionary {
 
 	@Override
 	public Boolean hasWord(String word) throws DictionaryException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getSimpleName() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getWordType(String word) throws DictionaryException {
 		// TODO Auto-generated method stub
 		return null;
 	}
