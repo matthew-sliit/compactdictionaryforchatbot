@@ -95,4 +95,13 @@ public class SpanishDictionary implements WordDictionary{
 		words.remove(word);
 	}
 
+	@Override
+	public String getSimpleName() {
+		return this.getClass().getSimpleName();
+	}
+
+	@Override
+	public String getWordType(String word) {
+		return this.words.get(word).type;
+	}
 }

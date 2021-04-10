@@ -30,7 +30,7 @@ public class FrenchDictionary implements WordDictionary {
 		}
 	}
 	@Override
-	public void addNewWord(String word, String type, String meaning) throws Exception {
+	public void addNewWord(String word, String type, String meaning) throws DictionaryException {
 		if(word.isBlank()) {
 			throw new DictionaryException("Word is just a blank!");
 		}
@@ -92,6 +92,14 @@ public class FrenchDictionary implements WordDictionary {
 	@Override
 	public void removeWord(String word) {
 		words.remove(word);
+	}
+	@Override
+	public String getSimpleName() {
+		return this.getClass().getSimpleName();
+	}
+	@Override
+	public String getWordType(String word) {
+		return this.words.get(word).type;
 	}
 
 }
