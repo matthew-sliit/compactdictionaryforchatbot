@@ -12,25 +12,28 @@ Scenario 03 (Changed): Simple ChatBot
   Producer: ChatBotService + Word Dictionary  
   Consumer: ChatBotUser  
 </pre>
-
+#### Dependencies  
+<pre>
+  Dependencies: gson-2.8.6.jar
+</pre>
 ### Task List:
 - [x] WordDictionary
-   - [x] English Dictionary
-   - [ ] Sinhala Dictionary
+   - [x] English Dictionary (Amanda)
+   - [ ] Sinhala Dictionary (Deshani)
    - [x] Dictionary Exception handling
    - [ ] Interaction Terminal for Dictionary inputs
-      - [x] English Dictionary handling
-      - [ ] Sinhala Dictionary handling 
+      - [x] English Dictionary handling (Amanda)
+      - [ ] Sinhala Dictionary handling (Deshani)
    - [x] Save words as preferences using gson
 - [ ] Sentence Translator
    - [x] English to Sinhala concept
-   - [ ] English Word to Sinhala Word
    - [ ] English Sentence to Sinhala Sentence
-   - [ ] Save translated words as preferences using gson
+   - [ ] Save translated sentences as preferences using gson
    - [ ] Run Experiments 
 - [ ] Word Translator
-   - [ ] English to Sinhala
+   - [x] English to Sinhala
    - [x] Interaction Terminal
+   - [ ] Save translated words as preferences using gson
 - [ ] English Language Sentence Checker:Failed DeadEND
 - [x] Simple ChatBot
    - [x] Predefine Words and Structures   
