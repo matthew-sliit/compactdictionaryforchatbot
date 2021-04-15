@@ -12,7 +12,7 @@ Scenario 03 (Changed): Simple ChatBot
   Producer: ChatBotService + Word Dictionary  
   Consumer: ChatBotUser  
 </pre>
-#### Dependencies  
+#### External Libraries 
 <pre>
   Dependencies: gson-2.8.6.jar
 </pre>
