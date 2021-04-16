@@ -28,7 +28,7 @@ public class EnglishDicTest {
 			input.close();
 			return;
 		}
-		System.out.println("Selected: "+wordDictionary.getClass().getSimpleName());
+		System.out.println("Selected: "+wordDictionary.getSimpleName());
 		
 
 		try {
