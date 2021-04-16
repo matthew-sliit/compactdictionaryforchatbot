@@ -2,8 +2,8 @@ package testclasses.worddict;
 
 import java.util.Scanner;
 
-import worddict.EnglishDictionary;
-import worddict.service.WordDictionary;
+import producer.worddict.EnglishDictionary;
+import producer.worddict.service.WordDictionary;
 
 public class EnglishDicTest {
 

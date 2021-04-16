@@ -1,4 +1,4 @@
-package translator;
+package producer.translator;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -12,14 +12,14 @@ import java.util.prefs.Preferences;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
-import translator.common.TranslatorException;
-import translator.service.SentenceTranslator;
-import worddict.EnglishDictionary;
-import worddict.GenericDictionary;
-import worddict.SinhalaDictionary;
-import worddict.commons.DictionaryException;
-import worddict.commons.WordData;
-import worddict.service.WordDictionary;
+import producer.translator.common.TranslatorException;
+import producer.translator.service.SentenceTranslator;
+import producer.worddict.EnglishDictionary;
+import producer.worddict.GenericDictionary;
+import producer.worddict.SinhalaDictionary;
+import producer.worddict.commons.DictionaryException;
+import producer.worddict.commons.WordData;
+import producer.worddict.service.WordDictionary;
 
 public class EnglishSentenceToSinhalaSentence implements SentenceTranslator {
 

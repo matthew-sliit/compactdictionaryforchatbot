@@ -3,10 +3,10 @@ package testclasses.testtranslators;
 import java.util.Map;
 import java.util.Scanner;
 
-import translator.SpanishWordToFrenchWord;
-import worddict.FrenchDictionary;
-import worddict.SpanishDictionary;
-import worddict.service.WordDictionary;
+import producer.translator.SpanishWordToFrenchWord;
+import producer.worddict.FrenchDictionary;
+import producer.worddict.SpanishDictionary;
+import producer.worddict.service.WordDictionary;
 
 public class SpanishWordToFrenchWordTest {
 	public static void main(String[] args) {

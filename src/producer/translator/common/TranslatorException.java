@@ -1,4 +1,4 @@
-package translator.common;
+package producer.translator.common;
 
 public class TranslatorException extends Exception {
 

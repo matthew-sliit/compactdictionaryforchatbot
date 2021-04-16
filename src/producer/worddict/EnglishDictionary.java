@@ -1,4 +1,4 @@
-package worddict;
+package producer.worddict;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -7,9 +7,10 @@ import java.util.prefs.Preferences;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import worddict.commons.DictionaryException;
-import worddict.commons.WordData;
-import worddict.service.WordDictionary;
+
+import producer.worddict.commons.DictionaryException;
+import producer.worddict.commons.WordData;
+import producer.worddict.service.WordDictionary;
 
 public class EnglishDictionary implements WordDictionary {
 	HashMap<String, WordData> words;

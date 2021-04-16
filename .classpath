@@ -7,5 +7,6 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="lib" path="bin/gson-2.8.6.jar"/>
+	<classpathentry kind="lib" path="bin/felix.jar"/>
 	<classpathentry kind="output" path="classes"/>
 </classpath>

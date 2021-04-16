@@ -1,10 +1,10 @@
-package translator.service;
+package producer.translator.service;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.concurrent.ConcurrentHashMap;
 
-import translator.common.TranslatorException;
+import producer.translator.common.TranslatorException;
 
 public interface SentenceTranslator {
 	//add new

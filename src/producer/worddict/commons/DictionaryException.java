@@ -1,4 +1,4 @@
-package worddict.commons;
+package producer.worddict.commons;
 
 public class DictionaryException extends Exception {
 

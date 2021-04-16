@@ -1,15 +1,15 @@
-package translator;
+package producer.translator;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
-import translator.service.WordTranslator;
-import worddict.FrenchDictionary;
-import worddict.SpanishDictionary;
-import worddict.commons.DictionaryException;
-import worddict.service.WordDictionary;
+import producer.translator.service.WordTranslator;
+import producer.worddict.FrenchDictionary;
+import producer.worddict.SpanishDictionary;
+import producer.worddict.commons.DictionaryException;
+import producer.worddict.service.WordDictionary;
 
 public class SpanishWordToFrenchWord implements WordTranslator {
 	//HasMap<Spanish word,French word> unoyuno

@@ -4,14 +4,14 @@ import java.util.Map;
 import java.util.Scanner;
 import java.util.StringTokenizer;
 
-import translator.EnglishSentenceToSinhalaSentence;
-import translator.EnglishWordToSinhalaWord;
-import translator.common.TranslatorException;
-import translator.service.SentenceTranslator;
-import translator.service.WordTranslator;
-import worddict.GenericDictionary;
-import worddict.commons.DictionaryException;
-import worddict.service.WordDictionary;
+import producer.translator.EnglishSentenceToSinhalaSentence;
+import producer.translator.EnglishWordToSinhalaWord;
+import producer.translator.common.TranslatorException;
+import producer.translator.service.SentenceTranslator;
+import producer.translator.service.WordTranslator;
+import producer.worddict.GenericDictionary;
+import producer.worddict.commons.DictionaryException;
+import producer.worddict.service.WordDictionary;
 
 public class TestEnglishSentenceToSinhalaSentence {
 

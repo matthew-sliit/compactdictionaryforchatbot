@@ -1,8 +1,8 @@
-package worddict.service;
+package producer.worddict.service;
 
 import java.util.ArrayList;
 
-import worddict.commons.DictionaryException;
+import producer.worddict.commons.DictionaryException;
 
 public interface WordDictionary {
 	//set

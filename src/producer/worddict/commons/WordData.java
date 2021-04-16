@@ -1,4 +1,4 @@
-package worddict.commons;
+package producer.worddict.commons;
 
 import java.util.ArrayList;
 

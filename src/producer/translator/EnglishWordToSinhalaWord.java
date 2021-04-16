@@ -1,4 +1,4 @@
-package translator;
+package producer.translator;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -9,14 +9,12 @@ import java.util.prefs.Preferences;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
-import translator.common.TranslatorException;
-import translator.service.WordTranslator;
-
-import worddict.GenericDictionary;
-
-import worddict.commons.DictionaryException;
-import worddict.commons.WordData;
-import worddict.service.WordDictionary;
+import producer.translator.common.TranslatorException;
+import producer.translator.service.WordTranslator;
+import producer.worddict.GenericDictionary;
+import producer.worddict.commons.DictionaryException;
+import producer.worddict.commons.WordData;
+import producer.worddict.service.WordDictionary;
 
 public class EnglishWordToSinhalaWord implements WordTranslator {
 
@@ -26,8 +24,6 @@ public class EnglishWordToSinhalaWord implements WordTranslator {
 	WordDictionary sinhala = null;
 	public static final String PREFERENCES_KEY = "ENtoSNWord";
 
-
-	
 	Preferences preferences = Preferences.userNodeForPackage(EnglishWordToSinhalaWord.class);
 	//gson
 	Gson gson = new Gson();
@@ -115,7 +111,4 @@ public class EnglishWordToSinhalaWord implements WordTranslator {
 	public String getTranslatedWord(String fromWord) {
 		return unoyuno.get(fromWord);//returns value for specific key
 	}
-	
-
-
 }
