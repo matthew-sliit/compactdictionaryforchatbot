@@ -105,7 +105,7 @@ public class EnglishDictionary implements WordDictionary {
 	}
 
 	@Override
-	public Boolean hasWord(String word) throws DictionaryException {
+	public Boolean hasWord(String word) {
 		if(words.isEmpty()) {
 			return false;
 		}

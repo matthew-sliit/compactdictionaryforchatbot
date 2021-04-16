@@ -17,5 +17,5 @@ public interface WordDictionary {
 	String getWordType(String word)throws DictionaryException;//verb, adverb, noun..
 	String getWordMeaning(String word)throws DictionaryException;
 	ArrayList<String> getAllWords() throws DictionaryException;
-	Boolean hasWord(String word)throws DictionaryException;
+	Boolean hasWord(String word);
 }

@@ -30,7 +30,7 @@ public class GenericDictionary implements WordDictionary {
 		//get all from preferences
 		String savedWords = preferences.get(DictionaryType, null);
 		if(savedWords!=null) {
-			java.lang.reflect.Type type = new TypeToken<HashMap<String, WordData>>(){}.getType();
+			java.lang.reflect.Type type = new TypeToken<ConcurrentHashMap<String, WordData>>(){}.getType();
 			words = gson.fromJson(savedWords, type);
 		}
 	}
