@@ -3,6 +3,9 @@ package testclasses.worddict;
 import java.util.Scanner;
 
 import worddict.EnglishDictionary;
+import worddict.FrenchDictionary;
+import worddict.SinhalaDictionary;
+import worddict.SpanishDictionary;
 import worddict.service.WordDictionary;
 
 public class EnglishDicTest {
@@ -11,7 +14,21 @@ public class EnglishDicTest {
 		WordDictionary wordDictionary = new EnglishDictionary();
 		Scanner input = new Scanner(System.in);
 		int value;
+		String value1;
 		System.out.println("Dictionary Service Started!");
+		
+		System.out.println("Enter Locale: (EN|SN)");
+		value1 = input.nextLine();
+		if(value1.equalsIgnoreCase("EN")) {
+			wordDictionary = new EnglishDictionary();
+		}else if(value1.equalsIgnoreCase("SN")) {
+			wordDictionary = new SinhalaDictionary();
+		}else {
+			System.out.println("Undefined Locale! Exiting!");
+			input.close();
+			return;
+		}
+		System.out.println("Selected: "+wordDictionary.getClass().getSimpleName());
 		
 
 		try {
