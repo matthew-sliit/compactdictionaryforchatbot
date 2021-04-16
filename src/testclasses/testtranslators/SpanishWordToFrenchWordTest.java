@@ -1,4 +1,4 @@
-package testclasses.translators;
+package testclasses.testtranslators;
 
 import java.util.Map;
 import java.util.Scanner;

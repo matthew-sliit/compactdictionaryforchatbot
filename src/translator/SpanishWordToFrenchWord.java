@@ -3,6 +3,7 @@ package translator;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 import translator.service.WordTranslator;
 import worddict.FrenchDictionary;
@@ -12,7 +13,7 @@ import worddict.service.WordDictionary;
 
 public class SpanishWordToFrenchWord implements WordTranslator {
 	//HasMap<Spanish word,French word> unoyuno
-	HashMap<String, String> unoyuno = new HashMap<String, String>();
+	ConcurrentHashMap<String, String> unoyuno = new ConcurrentHashMap<String, String>();
 	WordDictionary espanola = null;
 	WordDictionary francis = null;
 	
@@ -49,7 +50,7 @@ public class SpanishWordToFrenchWord implements WordTranslator {
 	}
 
 	@Override
-	public HashMap<String, String> getAllWords() {
+	public ConcurrentHashMap<String, String> getAllWords() {
 		selfUpdate();
 		return unoyuno;
 	}
@@ -75,6 +76,14 @@ public class SpanishWordToFrenchWord implements WordTranslator {
 	@Override
 	public String getTranslatedWord(String fromWord) {
 		return unoyuno.get(fromWord);//returns value for specific key
+	}
+
+	
+
+	@Override
+	public void Commit() {
+		// TODO Auto-generated method stub
+		
 	}
 	
 }

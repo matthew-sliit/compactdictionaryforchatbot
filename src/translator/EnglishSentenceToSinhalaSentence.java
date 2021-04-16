@@ -37,28 +37,7 @@ public class EnglishSentenceToSinhalaSentence implements SentenceTranslator {
 		   sentences=new ConcurrentHashMap<String, String>();
 		}
 		
-		@Override
-		public void addNewMap(String fromWord, String toWord) throws DictionaryException,TranslatorException {
-			selfUpdate();
-			
-			//unoyuno.put(fromWord, toWord);
-			if(unoyuno.isEmpty()) {
-				//error
-				//System.out.println("isEmpty");
-			}
-			if(unoyuno.get(fromWord)!="+unmapped" && unoyuno.get(fromWord)!=null){
-				//already mapped, edit?
-				//System.out.println("already mapped:"+unoyuno.get(fromWord));
-				throw new TranslatorException("Exception Word already mapped as "+unoyuno.get(fromWord));
-			}
-			if(!sinhala.hasWord(toWord)) {
-				//prevent map to undefined word, toWord by default is +unmapped
-				//System.out.println("word not in dictionary");
-			}else {
-				unoyuno.put(fromWord, toWord);
-				//fromWord.System.out.println("mapped");
-			}
-		}
+		
 
 		@Override
 		public ArrayList<String> getAllUnMappedWords() {
@@ -133,6 +112,22 @@ public class EnglishSentenceToSinhalaSentence implements SentenceTranslator {
 		public String getSentences(String sentence) {
 			// TODO Auto-generated method stub
 			return this.sentences.get(sentence);
+		}
+
+
+
+		@Override
+		public void removeall() {
+			// TODO Auto-generated method stub
+			
+		}
+
+
+
+		@Override
+		public void addNewSentence(String string, String string2) {
+			// TODO Auto-generated method stub
+			
 		}
 		
 }

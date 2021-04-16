@@ -2,14 +2,17 @@ package translator.service;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.concurrent.ConcurrentHashMap;
 
+import translator.common.TranslatorException;
 import worddict.commons.DictionaryException;
 
 public interface WordTranslator {
 	//set
-	void addNewMap(String fromWord, String toWord)throws DictionaryException;
+	void addNewMap(String fromWord, String toWord)throws DictionaryException, TranslatorException;
 	//get
 	ArrayList<String> getAllUnMappedWords();
-	HashMap<String, String> getAllWords();//all mapped
+	ConcurrentHashMap<String, String> getAllWords();//all mapped
 	String getTranslatedWord(String fromWord);
+	void Commit();
 }
