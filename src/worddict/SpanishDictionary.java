@@ -3,6 +3,7 @@ package worddict;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.prefs.Preferences;
 
 import com.google.gson.Gson;
@@ -13,7 +14,7 @@ import worddict.commons.WordData;
 import worddict.service.WordDictionary;
 
 public class SpanishDictionary implements WordDictionary{
-	HashMap<String, WordData> words;
+	ConcurrentHashMap<String, WordData> words;
 	public static final String DictionaryType = "ES";
 	//preferences
 	Preferences preferences = Preferences.userNodeForPackage(SpanishDictionary.class);
@@ -21,7 +22,7 @@ public class SpanishDictionary implements WordDictionary{
 	Gson gson = new Gson();
 	
 	public SpanishDictionary() {
-		words = new HashMap<String, WordData>();
+		words = new ConcurrentHashMap<String, WordData>();
 		//get all from preferences
 		String savedWords = preferences.get(DictionaryType, null);
 		if(savedWords!=null) {
@@ -103,5 +104,17 @@ public class SpanishDictionary implements WordDictionary{
 	@Override
 	public String getWordType(String word) {
 		return this.words.get(word).type;
+	}
+
+	@Override
+	public void addSynonym(String word, String synonym) throws DictionaryException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public ArrayList<String> getSynonyms(String word) throws DictionaryException {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

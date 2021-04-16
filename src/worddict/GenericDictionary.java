@@ -108,10 +108,20 @@ public class GenericDictionary implements WordDictionary {
 
 	@Override
 	public String getWordType(String word) throws DictionaryException{
-		// TODO Auto-generated method stub
 		if(!words.containsKey(word)) {
 			throw new DictionaryException("Dictionary does not have the word: " + word);
 		}
 		return this.words.get(word).type;
+	}
+
+	@Override
+	public void addSynonym(String word, String synonym) throws DictionaryException {
+		// TODO Auto-generated method stub
+	}
+
+	@Override
+	public ArrayList<String> getSynonyms(String word) throws DictionaryException {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }
