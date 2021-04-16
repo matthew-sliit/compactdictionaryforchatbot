@@ -6,128 +6,131 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.StringTokenizer;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.prefs.BackingStoreException;
 import java.util.prefs.Preferences;
 
 import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
 import translator.common.TranslatorException;
 import translator.service.SentenceTranslator;
+import worddict.EnglishDictionary;
 import worddict.GenericDictionary;
+import worddict.SinhalaDictionary;
 import worddict.commons.DictionaryException;
 import worddict.commons.WordData;
 import worddict.service.WordDictionary;
 
 public class EnglishSentenceToSinhalaSentence implements SentenceTranslator {
 
-	//HasMap<Spanish word,French word> unoyuno
-		HashMap<String, String> unoyuno = new HashMap<String, String>();
+	    //HasMap<Spanish word,French word> unoyuno
+		//HashMap<String, String> unoyuno = new HashMap<String, String>();
 		WordDictionary english = null;
 		WordDictionary sinhala = null;
-		public static final String DictionaryType = "ES";
+		public static final String PREFERENCES_KEY = "EN2SNSentences";
 		ConcurrentHashMap<String, String> sentences;
-
-
-		
-		Preferences preferences = Preferences.userNodeForPackage(GenericDictionary.class);
+		Preferences preferences = Preferences.userNodeForPackage(EnglishSentenceToSinhalaSentence.class);
 		//gson
 		Gson gson = new Gson();
-		
 		public EnglishSentenceToSinhalaSentence() {
 			// TODO Auto-generated constructor stub
 		   sentences=new ConcurrentHashMap<String, String>();
+		   //get all from preferences
+		   String savedWords = preferences.get(PREFERENCES_KEY , null);
+			if(savedWords!=null) {
+				java.lang.reflect.Type type = new TypeToken<ConcurrentHashMap<String, String>>(){}.getType();
+				sentences = gson.fromJson(savedWords, type);
+			}		
 		}
-		
-		
-
-		@Override
-		public ArrayList<String> getAllUnMappedWords() {
-			selfUpdate();//check for new words beforehand
-			ArrayList<String> unmappedWords = new ArrayList<String>();
-			for(Map.Entry<String, String> entry : unoyuno.entrySet()) {
-				if(entry.getValue().equals("+unmapped")) {
-					unmappedWords.add(entry.getKey());
-				}
-			}
-			return unmappedWords;
-		}
-
 		@Override
 		public void Commit() {
 			//unsafe, if preferences.put doesn't run by a failure; all words could be lost
-			preferences.remove(DictionaryType);
+			preferences.remove(PREFERENCES_KEY);
 			//save to preferences
 			String jsonWords = gson.toJson(sentences);//convert object to json string
-			preferences.put(DictionaryType, jsonWords);//store in preferences
+			preferences.put(PREFERENCES_KEY, jsonWords);//store in preferences
 		}
-
 		@Override
-		public HashMap<String, String> getAllWords() {
+		public void selfUpdate() {
+			english = new EnglishDictionary();
+			sinhala = new SinhalaDictionary();
+			 String savedWords = preferences.get(PREFERENCES_KEY , null);
+				if(savedWords!=null) {
+					java.lang.reflect.Type type = new TypeToken<ConcurrentHashMap<String, String>>(){}.getType();
+					sentences = gson.fromJson(savedWords, type);
+				}		
+		}
+		//english to sinhala
+		@Override
+		public void addNewSentence(String[] keys,String[] arr) throws TranslatorException {
 			selfUpdate();
-			return unoyuno;
-		}
-		
-		private void selfUpdate() {
-			english = new GenericDictionary("EN","English");
-			sinhala = new GenericDictionary("SN","Sinhala");
-			try {
-				for(String word : english.getAllWords()) {
-					if(!unoyuno.containsKey(word)) {
-						unoyuno.put(word, "+unmapped");//new word
-					}else {
-						if(!sinhala.hasWord(unoyuno.get(word))) {
-							unoyuno.put(word, "+unmapped");//word removed from French dictionary
-						}
-					}
-				}
-			} catch (DictionaryException e) {
-				//empty dictionary?
-				e.printStackTrace();
-			}
-		}
-
-		@Override
-		public String getTranslatedWord(String fromWord) {
-			return unoyuno.get(fromWord);//returns value for specific key
-		}
-
-		@Override
-		public void addNewSentence(String[] keys,String[] arr) {
             String key="";
             String value="";
 			for(String a:arr) {
-            	  value+=a+"";
-            	  
-              }
-			
-			for(String a:keys) {
-          	  key+=a+"";
-          	  
+			  value+=a+" ";
+           	  if(!sinhala.hasWord(a)) {
+           		  throw new TranslatorException(sinhala.getSimpleName()+" does not have the word {"+a+"}");
+           	  }
             }
+			value = (String)value.subSequence(0, value.length()-1);
+			for(String a:keys) {
+          	  key+=a+" ";
+          	  if(!english.hasWord(a)) {
+      		      throw new TranslatorException(english.getSimpleName()+" does not have the word {"+a+"}");
+      	      } 
+            }
+			key = (String)key.subSequence(0, key.length()-1);
+			if(sentences.contains(key)) {
+				throw new TranslatorException("Sentence already translated!");
+			}
 			System.out.println(key+">"+value);
-             sentences.put(key,value); 
-             
+            sentences.put(key,value); 
+            Commit();
 		}
-
-		@Override
-		public String getSentences(String sentence) {
-			// TODO Auto-generated method stub
-			return this.sentences.get(sentence);
-		}
-
-
 
 		@Override
 		public void removeall() {
-			// TODO Auto-generated method stub
-			
+			preferences.remove(PREFERENCES_KEY);
+			try {
+				preferences.removeNode();
+				preferences = Preferences.userNodeForPackage(EnglishSentenceToSinhalaSentence.class);
+			} catch (BackingStoreException ignored) {}
+			selfUpdate();
 		}
 
-
+		@Override
+		public void addNewSentence(String string, String string2) throws TranslatorException{
+			if(sentences.containsKey(string)) {
+				throw new TranslatorException("Sentence already translated!");
+			}
+			addNewSentence(string.split("\\s+"), string2.split("\\s+"));
+		}
 
 		@Override
-		public void addNewSentence(String string, String string2) {
-			// TODO Auto-generated method stub
-			
+		public String getENTranslation(String sn_sentence) {
+			selfUpdate();
+			if(sentences.containsValue(sn_sentence)) {
+				for(Map.Entry<String, String> e : sentences.entrySet()) {
+					if(e.getValue().equals(sn_sentence)) {
+						return e.getKey();
+					}
+				}
+			}
+			return null;
+		}
+		@Override
+		public String getSNTranslation(String en_sentence) {
+			selfUpdate();
+			if(sentences.containsKey(en_sentence)) {
+				return this.sentences.get(en_sentence);
+			}
+			return null;
+		}
+
+		@Override
+		public ConcurrentHashMap<String, String> getAllSentences() {
+			selfUpdate();
+			return this.sentences;
 		}
 		
 }
