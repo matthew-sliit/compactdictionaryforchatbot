@@ -14,7 +14,7 @@ Scenario 03 (Changed): Simple ChatBot
 </pre>
 #### External Libraries 
 <pre>
-  Dependencies: gson-2.8.6.jar
+  Dependencies: gson-2.8.6.jar, felix-7.0.0.jar
 </pre>
 ### Task List:
 - [x] WordDictionary
