@@ -18,21 +18,24 @@ public class GenericDictionary implements WordDictionary {
 	public String DictionaryType = "ES";
 	public String dictionaryLang = "xDictionary";
 	//preferences
-	Preferences preferences = Preferences.userNodeForPackage(GenericDictionary.class);
+	//Preferences preferences = Preferences.userNodeForPackage(GenericDictionary.class);
 	//gson
-	Gson gson = new Gson();
-	
+	//Gson gson = new Gson();
+	public GenericDictionary() {
+		// TODO Auto-generated constructor stub
+	}
 	public GenericDictionary(String locale, String language) {
 		DictionaryType = locale;
 		dictionaryLang = language+"Dictionary";
 		
 		words = new ConcurrentHashMap<String, WordData>();
+		/*
 		//get all from preferences
 		String savedWords = preferences.get(DictionaryType, null);
 		if(savedWords!=null) {
 			java.lang.reflect.Type type = new TypeToken<ConcurrentHashMap<String, WordData>>(){}.getType();
 			words = gson.fromJson(savedWords, type);
-		}
+		}*/
 	}
 	
 	@Override
@@ -88,11 +91,13 @@ public class GenericDictionary implements WordDictionary {
 
 	@Override
 	public void Commit() {
+		/*
 		//unsafe, if preferences.put doesn't run by a failure; all words could be lost
 		preferences.remove(DictionaryType);
 		//save to preferences
 		String jsonWords = gson.toJson(words);//convert object to json string
 		preferences.put(DictionaryType, jsonWords);//store in preferences
+		*/
 	}
 
 	@Override
@@ -123,5 +128,16 @@ public class GenericDictionary implements WordDictionary {
 	public ArrayList<String> getSynonyms(String word) throws DictionaryException {
 		// TODO Auto-generated method stub
 		return null;
+	}
+	@Override
+	public void selfUpdate() {
+		words = new ConcurrentHashMap<String, WordData>();
+		/*
+		//get all from preferences
+		String savedWords = preferences.get(DictionaryType, null);
+		if(savedWords!=null) {
+			java.lang.reflect.Type type = new TypeToken<HashMap<String, WordData>>(){}.getType();
+			words = gson.fromJson(savedWords, type);
+		}	*/			
 	}
 }

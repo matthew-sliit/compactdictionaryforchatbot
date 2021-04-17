@@ -112,5 +112,10 @@ public class FrenchDictionary implements WordDictionary {
 		// TODO Auto-generated method stub
 		
 	}
+	@Override
+	public void selfUpdate() {
+		// TODO Auto-generated method stub
+		
+	}
 
 }

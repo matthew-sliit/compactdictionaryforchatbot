@@ -117,4 +117,10 @@ public class SpanishDictionary implements WordDictionary{
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	@Override
+	public void selfUpdate() {
+		// TODO Auto-generated method stub
+		
+	}
 }

@@ -10,6 +10,7 @@ public interface WordDictionary {
 	void addSynonym(String word, String synonym) throws DictionaryException;
 	void Commit();//save as preferences
 	void removeWord(String word);//remove from hash map
+	void selfUpdate();
 	//get
 	String getLocale();
 	ArrayList<String> getSynonyms(String word) throws DictionaryException;

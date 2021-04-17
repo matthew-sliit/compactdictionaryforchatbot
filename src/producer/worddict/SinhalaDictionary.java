@@ -136,4 +136,13 @@ public class SinhalaDictionary implements WordDictionary {
 		return this.words.get(word).type;
 	}
 
+	@Override
+	public void selfUpdate() {
+		String savedWords = preferences.get(DictionaryType, null);
+		if(savedWords!=null) {
+			java.lang.reflect.Type type = new TypeToken<HashMap<String, WordData>>(){}.getType();
+			words = gson.fromJson(savedWords, type);
+		}
+	}
+
 }
