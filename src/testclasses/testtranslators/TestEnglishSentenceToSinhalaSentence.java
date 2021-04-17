@@ -16,13 +16,13 @@ import producer.worddict.service.WordDictionary;
 public class TestEnglishSentenceToSinhalaSentence {
 
 	public static void main(String[] args) {
-		WordTranslator translator = new EnglishWordToSinhalaWord();
-		SentenceTranslator stranslator=new EnglishSentenceToSinhalaSentence(); 
+		WordDictionary en = new GenericDictionary("EN","English");
+		WordDictionary sn = new GenericDictionary("SN","Sinhala");
+		WordTranslator translator = new EnglishWordToSinhalaWord(en,sn);
+		SentenceTranslator stranslator=new EnglishSentenceToSinhalaSentence(en,sn); 
 		Scanner input = new Scanner(System.in);
 		String value = "";
 		System.out.println("Dictionary Translator Service Started for EN-to-SN");	
-		WordDictionary en = new GenericDictionary("EN","English");
-		WordDictionary sn = new GenericDictionary("SN","Sinhala");
 		String[] ignor= {"are","is"};
 		try {
 			/*

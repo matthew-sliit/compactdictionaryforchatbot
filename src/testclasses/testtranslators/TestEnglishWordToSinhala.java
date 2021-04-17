@@ -14,12 +14,13 @@ import producer.worddict.service.WordDictionary;
 public class TestEnglishWordToSinhala {
 
 		public static void main(String[] args) {
-			WordTranslator translatorES2FR = new EnglishWordToSinhalaWord();
+			WordDictionary en = new GenericDictionary("EN","English");
+			WordDictionary sn = new GenericDictionary("SN","Sinhala");
+			WordTranslator translatorES2FR = new EnglishWordToSinhalaWord(en,sn);
 			Scanner input = new Scanner(System.in);
 			String value = "";
 			System.out.println("Dictionary Translator Service Started for EN-to-SN");	
-			WordDictionary en = new GenericDictionary("EN","English");
-			WordDictionary sn = new GenericDictionary("SN","Sinhala");
+			
 			String[] ignor= {"are","is"};
 			try {
 				//English Dictionary
@@ -48,9 +49,6 @@ public class TestEnglishWordToSinhala {
 						//System.out.println(splitWords[0]+" -> "+splitWords[1]);
 						translatorES2FR.addNewMap(splitWords[0], splitWords[1]);
 						System.out.println("Your word was added successfully to the dictionary!");
-						
-				      
-						
 					}else if(value.startsWith("getallunmapped")) {
 						for(String word: translatorES2FR.getAllUnMappedWords()) {
 							System.out.println(word);
