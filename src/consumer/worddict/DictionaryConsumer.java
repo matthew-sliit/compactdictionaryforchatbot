@@ -25,10 +25,10 @@ public class DictionaryConsumer implements BundleActivator {
 		 // Create a service tracker to monitor dictionary services.
 		 WordDictionary wordDictionary = null;
 		 BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
-		 
+		 //initialize
 		 String value1 = "", dictionaryLang = "EX"; Boolean isGeneric = false, exitcode=false;	
 		 int value;
-	     System.out.println("Dictionary Service Started!");
+	     System.out.println("Dictionary Handler Started!");
 	     System.out.println("Enter Locale: (EN|SN)");
 			value1 = input.readLine();
 			if(value1.equalsIgnoreCase("EN")) {
@@ -48,15 +48,19 @@ public class DictionaryConsumer implements BundleActivator {
 			dictionary_tracker.open();
 			wordDictionary = (WordDictionary) dictionary_tracker.getService();
 			//show dictionary type
-	 		System.out.println("Selected: "+wordDictionary.getSimpleName());
+			try {
+				System.out.println("Selected: "+wordDictionary.getSimpleName());
+			}catch (NullPointerException e) {
+				System.out.println("Selected Dictionary Service is Not Available!");
+			}
 	     while (true && !exitcode)
          {
 	    	try {
 	    		System.out.println("=================================================");
 				System.out.println("1-Add new word | 2-Add synonym | 3-Get word | 4-Get synonyms |5-Has word | 6-Get all words |"
-			+ "7-Commit | 8-Remove word");
+			+ "7-Commit | 8-Remove word | 9-Exit");
 				System.out.print("Enter the number : ");
-				value = input.read();
+				value = Integer.parseInt(input.readLine());
 				System.out.println("=================================================");
 				
 				if(value == 1) {
@@ -112,7 +116,8 @@ public class DictionaryConsumer implements BundleActivator {
 					}
 				}else if(value == 7) {
 					wordDictionary.Commit();//save as preferences
-					wordDictionary = new EnglishDictionary();//reset
+					wordDictionary.selfUpdate();
+					//wordDictionary = new EnglishDictionary();//reset
 				}else if(value == 8) {
 					System.out.print("Word : ");
 					String word = input.readLine();
@@ -120,15 +125,19 @@ public class DictionaryConsumer implements BundleActivator {
 					wordDictionary.removeWord(word);
 					System.out.println("Word removed successfully!");
 				}else {
-					System.out.println("Dictionary Service Stopped!");
+					exitcode = true;
 					break;
 				}
-	    	}catch (DictionaryException | IndexOutOfBoundsException | NullPointerException e) {
+	    	}catch (NumberFormatException e) {
+	    		exitcode = true;
+				break;
+			}catch (DictionaryException | IndexOutOfBoundsException | NullPointerException e) {
 	    		System.out.println("Exception caught:"+wordDictionary.getSimpleName()+" ex="+e.getMessage());
 			}
          }
 	     input.close();
-	     System.out.println("Dictionary Word Adder Stopped!");
+	     System.out.println("Dictionary Word Adder Stopping!");
+	     stop(context);
 	}
 	private static void showOutput(String newword,String type,String meaning) {
 		System.out.println("Word:" + newword);
@@ -145,6 +154,7 @@ public class DictionaryConsumer implements BundleActivator {
 				wordDictionary.Commit();
 			}
 		}
+		System.out.println("Dictionary Word Adder Stopped!");
 	}
 
 }

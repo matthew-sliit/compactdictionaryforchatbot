@@ -1,0 +1,6 @@
+Bundle-Name: Translation Client
+Bundle-Description: A translator client using the translator and dictionary services.
+Bundle-Vendor: Apache Felix
+Bundle-Version: 1.0.0
+Bundle-Activator: consumer.translator.TranslatorConsumer
+Import-Package: org.osgi.framework, org.osgi.util.tracker, com.google.gson, com.google.gson.reflect, producer.translator.service, producer.translator.common, producer.worddict.service, producer.worddict.commons 

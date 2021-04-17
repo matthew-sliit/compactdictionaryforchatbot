@@ -138,6 +138,7 @@ public class SinhalaDictionary implements WordDictionary {
 
 	@Override
 	public void selfUpdate() {
+		words = new ConcurrentHashMap<String, WordData>();
 		String savedWords = preferences.get(DictionaryType, null);
 		if(savedWords!=null) {
 			java.lang.reflect.Type type = new TypeToken<HashMap<String, WordData>>(){}.getType();

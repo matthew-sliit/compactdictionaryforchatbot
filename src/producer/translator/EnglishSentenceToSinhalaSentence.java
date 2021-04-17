@@ -1,24 +1,14 @@
 package producer.translator;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
+
 import java.util.Map;
-import java.util.StringTokenizer;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.prefs.BackingStoreException;
 import java.util.prefs.Preferences;
-
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-
 import producer.translator.common.TranslatorException;
 import producer.translator.service.SentenceTranslator;
-import producer.worddict.EnglishDictionary;
-import producer.worddict.GenericDictionary;
-import producer.worddict.SinhalaDictionary;
-import producer.worddict.commons.DictionaryException;
-import producer.worddict.commons.WordData;
 import producer.worddict.service.WordDictionary;
 
 public class EnglishSentenceToSinhalaSentence implements SentenceTranslator {
@@ -32,8 +22,8 @@ public class EnglishSentenceToSinhalaSentence implements SentenceTranslator {
 		Preferences preferences = Preferences.userNodeForPackage(EnglishSentenceToSinhalaSentence.class);
 		//gson
 		Gson gson = new Gson();
-		public EnglishSentenceToSinhalaSentence() {
-			// TODO Auto-generated constructor stub
+		public EnglishSentenceToSinhalaSentence(WordDictionary englishDictionary, WordDictionary sinhalaDictionary) {
+		   this.english = englishDictionary; this.sinhala = sinhalaDictionary;
 		   sentences=new ConcurrentHashMap<String, String>();
 		   //get all from preferences
 		   String savedWords = preferences.get(PREFERENCES_KEY , null);
@@ -52,8 +42,8 @@ public class EnglishSentenceToSinhalaSentence implements SentenceTranslator {
 		}
 		@Override
 		public void selfUpdate() {
-			english = new EnglishDictionary();
-			sinhala = new SinhalaDictionary();
+			english.selfUpdate();
+			sinhala.selfUpdate();
 			 String savedWords = preferences.get(PREFERENCES_KEY , null);
 				if(savedWords!=null) {
 					java.lang.reflect.Type type = new TypeToken<ConcurrentHashMap<String, String>>(){}.getType();

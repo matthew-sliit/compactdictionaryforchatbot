@@ -27,8 +27,8 @@ public class EnglishWordToSinhalaWord implements WordTranslator {
 	Preferences preferences = Preferences.userNodeForPackage(EnglishWordToSinhalaWord.class);
 	//gson
 	Gson gson = new Gson();
-	
-	public EnglishWordToSinhalaWord() {
+	public EnglishWordToSinhalaWord(WordDictionary englishDictionary, WordDictionary sinhalaDictionary) {
+		this.english = englishDictionary; this.sinhala = sinhalaDictionary;
 		unoyuno = new ConcurrentHashMap<String, String>();
 		//get all from preferences
 		String savedWords = preferences.get(PREFERENCES_KEY , null);
@@ -89,8 +89,10 @@ public class EnglishWordToSinhalaWord implements WordTranslator {
 	}
 	
 	private void selfUpdate() {
-		english = new GenericDictionary("EN","English");
-		sinhala = new GenericDictionary("SN","Sinhala");
+		//english = new GenericDictionary("EN","English");
+		//sinhala = new GenericDictionary("SN","Sinhala");
+		english.selfUpdate();
+		sinhala.selfUpdate();
 		try {
 			for(String word : english.getAllWords()) {
 				if(!unoyuno.containsKey(word)) {

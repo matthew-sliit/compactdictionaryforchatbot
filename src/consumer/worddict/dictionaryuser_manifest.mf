@@ -3,4 +3,4 @@ Bundle-Description: A dictionary client using the Service Tracker.
 Bundle-Vendor: Apache Felix
 Bundle-Version: 1.0.0
 Bundle-Activator: consumer.worddict.DictionaryConsumer
-Import-Package: org.osgi.framework, org.osgi.util.tracker, com.google.code.gson, producer.worddict.service, producer.worddict.commons
+Import-Package: org.osgi.framework, org.osgi.util.tracker, com.google.gson, com.google.gson.reflect, producer.worddict.service, producer.worddict.commons

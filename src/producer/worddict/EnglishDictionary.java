@@ -140,6 +140,7 @@ public class EnglishDictionary implements WordDictionary {
 
 	@Override
 	public void selfUpdate() {
+		words = new HashMap<String, WordData>();
 		//get all from preferences
 		String savedWords = preferences.get(DictionaryType, null);
 		if(savedWords!=null) {
