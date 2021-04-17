@@ -19,21 +19,21 @@ Scenario 03 (Changed): Simple ChatBot
 ### Task List:
 - [x] WordDictionary
    - [x] English Dictionary (Amanda)
-   - [ ] Sinhala Dictionary (Deshani)
+   - [x] Sinhala Dictionary (Deshani)
    - [x] Dictionary Exception handling
-   - [ ] Interaction Terminal for Dictionary inputs
+   - [x] Interaction Terminal for Dictionary inputs
       - [x] English Dictionary handling (Amanda)
-      - [ ] Sinhala Dictionary handling (Deshani)
+      - [x] Sinhala Dictionary handling (Deshani)
    - [x] Save words as preferences using gson
-- [ ] Sentence Translator
+- [x] Sentence Translator
    - [x] English to Sinhala concept
-   - [ ] English Sentence to Sinhala Sentence
-   - [ ] Save translated sentences as preferences using gson
-   - [ ] Run Experiments 
-- [ ] Word Translator
+   - [x] English Sentence to Sinhala Sentence
+   - [x] Save translated sentences as preferences using gson
+   - [x] Run Experiments 
+- [x] Word Translator
    - [x] English to Sinhala
    - [x] Interaction Terminal
-   - [ ] Save translated words as preferences using gson
+   - [x] Save translated words as preferences using gson
 - [ ] English Language Sentence Checker:Failed DeadEND
 - [x] Simple ChatBot
    - [x] Predefine Words and Structures   
@@ -42,12 +42,12 @@ Scenario 03 (Changed): Simple ChatBot
    - [x] Multithread  
    - [x] Use Dictionary services  
    - [ ] Experiment, Identify Strengths and Weaknesses 
-- [ ] Add Apache Felix framework
-- [ ] Add OSGi Activator classes
-- [ ] Add Manifest files
-- [ ] Generate jar files
-- [ ] Create batch script to robocopy classes to {folder}
-- [ ] Create batch script to auto generate jar files
+- [x] Add Apache Felix framework
+- [x] Add OSGi Activator classes
+- [x] Add Manifest files
+- [x] Generate jar files
+- [x] Create batch script to robocopy classes to {folder}
+- [x] Create batch script to auto generate jar files
 ### Allocation:  
 |Allocation|contributor|
 |-|-|
