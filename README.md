@@ -60,30 +60,85 @@ Scenario 03 (Changed): Simple ChatBot
 ```bash
 ├───bin
 │       gson-2.8.6.jar
-└───src
-    ├───sentencechecker
-    ├───testclasses
-    │   ├───translators
-    │   │       SpanishWordToFrenchWordTest.java
-    │   │
-    │   └───worddict
-    │           DictionaryTest.java
-    │
-    ├───translator
-    │   │   SpanishWordToFrenchWord.java
-    │   │
-    │   └───service
-    │           SentenceTranslator.java
-    │           WordTranslator.java
-    │
-    └───worddict
-        │   FrenchDictionary.java
-        │   SpanishDictionary.java
-        │
-        ├───commons
-        │       DictionaryException.java
-        │       WordData.java
-        │
-        └───service
-                WordDictionary.java
+├───output
+│   │       dictionary.jar
+│   │       dictionaryuser.jar
+│   │       translator.jar
+│   │       translatoruser.jar
+│   │
+│   └───src
+│       ├───consumer
+│       │   ├───translator
+│       │   │       TranslatorConsumer.java
+│       │   │       translatoruser_manifest.mf
+│       │   │
+│       │   └───worddict
+│       │           DictionaryConsumer.java
+│       │           dictionaryuser_manifest.mf
+│       │
+│       ├───producer
+│       │   ├───chatbot
+│       │   │   │   BotMind.java
+│       │   │   │   BotProvider.java
+│       │   │   │   EnglishChatbot.java
+│       │   │   │   EnglishSentenceStructure.java
+│       │   │   │   manifest_chatbot.mf
+│       │   │   │
+│       │   │   ├───commons
+│       │   │   │       ChatBotException.java
+│       │   │   │
+│       │   │   ├───runners
+│       │   │   │       PerspectiveIdentifier.java
+│       │   │   │       SentenceAnalyzer.java
+│       │   │   │       SentenceWordTypeIdentifier.java
+│       │   │   │
+│       │   │   └───service
+│       │   │           ChatbotMemory.java
+│       │   │           ChatbotService.java
+│       │   │
+│       │   ├───translator
+│       │   │   │   EnglishSentenceToSinhalaSentence.java
+│       │   │   │   EnglishWordToSinhalaWord.java
+│       │   │   │   SpanishWordToFrenchWord.java
+│       │   │   │   TranslatorProvider.java
+│       │   │   │   translatorservice_manifest.mf
+│       │   │   │
+│       │   │   ├───common
+│       │   │   │       TranslatorException.java
+│       │   │   │
+│       │   │   └───service
+│       │   │           SentenceTranslator.java
+│       │   │           WordTranslator.java
+│       │   │
+│       │   └───worddict
+│       │       │   DictionaryProvider.java
+│       │       │   dictionaryservice_manifest.mf
+│       │       │   EnglishDictionary.java
+│       │       │   FrenchDictionary.java
+│       │       │   GenericDictionary.java
+│       │       │   SinhalaDictionary.java
+│       │       │   SpanishDictionary.java
+│       │       │
+│       │       ├───commons
+│       │       │       DictionaryException.java
+│       │       │       WordData.java
+│       │       │
+│       │       └───service
+│       │               WordDictionary.java
+│       │
+│       └───testclasses
+│           ├───chatbot
+│           │       ChatBotTest.java
+│           │
+│           ├───sentencing
+│           │       SentenceCheckerTest.java
+│           │
+│           ├───testtranslators
+│           │       SpanishWordToFrenchWordTest.java
+│           │       TestEnglishSentenceToSinhalaSentence.java
+│           │       TestEnglishWordToSinhala.java
+│           │
+│           └───worddict
+│                   DictionaryTest.java
+│                   EnglishDicTest.java
 ```
