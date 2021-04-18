@@ -3,6 +3,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.TreeMap;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.prefs.Preferences;
 
 import com.google.gson.Gson;
@@ -13,7 +14,7 @@ import producer.worddict.commons.WordData;
 import producer.worddict.service.WordDictionary;
 
 public class EnglishDictionary implements WordDictionary {
-	HashMap<String, WordData> words;
+	ConcurrentHashMap<String, WordData> words;
 	public static final String DictionaryType = "EN";
 	//preferences
 	Preferences preferences = Preferences.userNodeForPackage(EnglishDictionary.class);
@@ -22,12 +23,12 @@ public class EnglishDictionary implements WordDictionary {
 	
 	public EnglishDictionary() {
 	
-		words = new HashMap<String, WordData>();
+		words = new ConcurrentHashMap<String, WordData>();
 		
 		//get all from preferences
 		String savedWords = preferences.get(DictionaryType, null);
 		if(savedWords!=null) {
-			java.lang.reflect.Type type = new TypeToken<HashMap<String, WordData>>(){}.getType();
+			java.lang.reflect.Type type = new TypeToken<ConcurrentHashMap<String, WordData>>(){}.getType();
 			words = gson.fromJson(savedWords, type);
 		}
 	}
@@ -140,11 +141,11 @@ public class EnglishDictionary implements WordDictionary {
 
 	@Override
 	public void selfUpdate() {
-		words = new HashMap<String, WordData>();
+		words = new ConcurrentHashMap<String, WordData>();
 		//get all from preferences
 		String savedWords = preferences.get(DictionaryType, null);
 		if(savedWords!=null) {
-			java.lang.reflect.Type type = new TypeToken<HashMap<String, WordData>>(){}.getType();
+			java.lang.reflect.Type type = new TypeToken<ConcurrentHashMap<String, WordData>>(){}.getType();
 			words = gson.fromJson(savedWords, type);
 		}		
 	}

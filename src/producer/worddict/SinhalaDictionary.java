@@ -141,7 +141,7 @@ public class SinhalaDictionary implements WordDictionary {
 		words = new ConcurrentHashMap<String, WordData>();
 		String savedWords = preferences.get(DictionaryType, null);
 		if(savedWords!=null) {
-			java.lang.reflect.Type type = new TypeToken<HashMap<String, WordData>>(){}.getType();
+			java.lang.reflect.Type type = new TypeToken<ConcurrentHashMap<String, WordData>>(){}.getType();
 			words = gson.fromJson(savedWords, type);
 		}
 	}
