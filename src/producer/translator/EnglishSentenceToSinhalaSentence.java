@@ -42,6 +42,8 @@ public class EnglishSentenceToSinhalaSentence implements SentenceTranslator {
 		}
 		@Override
 		public void selfUpdate() {
+			//reset sentences holder
+			sentences=new ConcurrentHashMap<String, String>();
 			english.selfUpdate();
 			sinhala.selfUpdate();
 			 String savedWords = preferences.get(PREFERENCES_KEY , null);
@@ -56,20 +58,36 @@ public class EnglishSentenceToSinhalaSentence implements SentenceTranslator {
 			selfUpdate();
             String key="";
             String value="";
+            Boolean hasEndingPunctuation = false;
 			for(String a:arr) {
-			  value+=a+" ";
-           	  if(!sinhala.hasWord(a)) {
+				if(!a.equals("?")) {
+					value+=a+" ";
+				}else {
+					hasEndingPunctuation = true;
+					value = (String)value.subSequence(0, value.length()-1);
+					value+=a;
+				}
+           	    if(!sinhala.hasWord(a)) {
            		  throw new TranslatorException(sinhala.getSimpleName()+" does not have the word {"+a+"}");
-           	  }
+           	    }
             }
-			value = (String)value.subSequence(0, value.length()-1);
+			if(!hasEndingPunctuation) {
+				value = (String)value.subSequence(0, value.length()-1);
+			}
 			for(String a:keys) {
-          	  key+=a+" ";
-          	  if(!english.hasWord(a)) {
-      		      throw new TranslatorException(english.getSimpleName()+" does not have the word {"+a+"}");
-      	      } 
+				if(!a.equals("?")) {
+					key+=a+" ";
+				}else {
+					key = (String)key.subSequence(0, key.length()-1);
+					key+=a;
+				}
+				if(!english.hasWord(a)) {
+	      		      throw new TranslatorException(english.getSimpleName()+" does not have the word {"+a+"}");
+	      	    } 
             }
-			key = (String)key.subSequence(0, key.length()-1);
+			if(!hasEndingPunctuation) {
+				key = (String)key.subSequence(0, key.length()-1);
+			}
 			if(sentences.contains(key)) {
 				throw new TranslatorException("Sentence already translated!");
 			}
@@ -93,7 +111,35 @@ public class EnglishSentenceToSinhalaSentence implements SentenceTranslator {
 			if(sentences.containsKey(string)) {
 				throw new TranslatorException("Sentence already translated!");
 			}
-			addNewSentence(string.split("\\s+"), string2.split("\\s+"));
+			String[] sentence1 = null,sentence2 = null, s = null; int size =0;
+			size = string.split("\\s+").length;
+			s = string.split("\\s+");
+			if(string.endsWith("?")) {
+				sentence1 = new String[size+1];//extra 1 for symbol
+				for(int i=0;i<size;i++) {
+					sentence1[i] = s[i];
+				}
+				sentence1[size] = (String) sentence1[size-1].subSequence(sentence1[size-1].length()-1, sentence1[size-1].length());
+				//System.out.println("sentence[size]="+sentence[size]);
+				sentence1[size-1] = (String) sentence1[size-1].subSequence(0, sentence1[size-1].length()-1);
+			}else {
+				sentence1 = string.split("\\s+");
+			}
+			size = string.split("\\s+").length;
+			s = string2.split("\\s+");
+			if(string2.endsWith("?")) {
+				size = string2.split("\\s+").length;
+				sentence2 = new String[size+1];//extra 1 for symbol
+				for(int i=0;i<size;i++) {
+					sentence2[i] = s[i];
+				}
+				sentence2[size] = (String) sentence2[size-1].subSequence(sentence2[size-1].length()-1, sentence2[size-1].length());
+				//System.out.println("sentence[size]="+sentence[size]);
+				sentence2[size-1] = (String) sentence2[size-1].subSequence(0, sentence2[size-1].length()-1);
+			}else {
+				sentence2 = string2.split("\\s+");
+			}
+			addNewSentence(sentence1, sentence2);
 		}
 
 		@Override

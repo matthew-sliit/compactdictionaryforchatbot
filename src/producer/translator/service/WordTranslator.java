@@ -13,6 +13,7 @@ public interface WordTranslator {
 	//get
 	ArrayList<String> getAllUnMappedWords();
 	ConcurrentHashMap<String, String> getAllWords();//all mapped
+	ArrayList<String> getAllESWords() throws DictionaryException;
 	String getTranslatedWord(String fromWord);
 	void Commit();
 }

@@ -59,6 +59,7 @@ public class EnglishWordToSinhalaWord implements WordTranslator {
 			unoyuno.put(fromWord, toWord);
 			//fromWord.System.out.println("mapped");
 		}
+		Commit();
 	}
 
 	@Override
@@ -91,6 +92,14 @@ public class EnglishWordToSinhalaWord implements WordTranslator {
 	private void selfUpdate() {
 		//english = new GenericDictionary("EN","English");
 		//sinhala = new GenericDictionary("SN","Sinhala");
+		//reset this class
+		unoyuno = new ConcurrentHashMap<String, String>();
+		//get all from preferences
+		String savedWords = preferences.get(PREFERENCES_KEY , null);
+		if(savedWords!=null) {
+			java.lang.reflect.Type type = new TypeToken<ConcurrentHashMap<String, String>>(){}.getType();
+			unoyuno = gson.fromJson(savedWords, type);
+		}			
 		english.selfUpdate();
 		sinhala.selfUpdate();
 		try {
@@ -112,5 +121,11 @@ public class EnglishWordToSinhalaWord implements WordTranslator {
 	@Override
 	public String getTranslatedWord(String fromWord) {
 		return unoyuno.get(fromWord);//returns value for specific key
+	}
+
+	@Override
+	public ArrayList<String> getAllESWords() throws DictionaryException {
+		// TODO Auto-generated method stub
+		return this.sinhala.getAllWords();
 	}
 }

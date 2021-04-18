@@ -85,5 +85,11 @@ public class SpanishWordToFrenchWord implements WordTranslator {
 		// TODO Auto-generated method stub
 		
 	}
+
+	@Override
+	public ArrayList<String> getAllESWords() throws DictionaryException {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 }
