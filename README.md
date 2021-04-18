@@ -1,4 +1,4 @@
-# PortableDictionaryForChatbotOSGi
+# PortableDictionary For Chatbot with OSGi
 Group project for Software Architecture Assignment 01   
 Topic: **PortableDictionary For Chatbot**
 <pre>
