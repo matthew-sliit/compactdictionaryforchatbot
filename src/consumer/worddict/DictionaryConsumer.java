@@ -1,6 +1,7 @@
 package consumer.worddict;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
 
 import org.osgi.framework.BundleActivator;
@@ -30,6 +31,7 @@ public class DictionaryConsumer implements BundleActivator {
 		 int value;
 	     System.out.println("Dictionary Handler Started!");
 	     System.out.println("Enter Locale: (EN|SN)");
+	     try {
 			value1 = input.readLine();
 			if(value1.equalsIgnoreCase("EN")) {
 				//wordDictionary = new EnglishDictionary();
@@ -40,9 +42,11 @@ public class DictionaryConsumer implements BundleActivator {
 			}else {
 				System.out.println("Undefined Language! Exiting!");
 				exitcode = true;
-				//input.close();
-				//return;
 			}
+	     }catch (Exception e) {
+			exitcode = true;
+			 //stop(context);
+		}
 	 		//track dictionary service
 	 		dictionary_tracker = new ServiceTracker(m_context,m_context.createFilter("(&(objectClass=" + WordDictionary.class.getName() + ")" +"(language_code="+dictionaryLang+"))"),null);
 			dictionary_tracker.open();
@@ -52,6 +56,7 @@ public class DictionaryConsumer implements BundleActivator {
 				System.out.println("Selected: "+wordDictionary.getSimpleName());
 			}catch (NullPointerException e) {
 				System.out.println("Selected Dictionary Service is Not Available!");
+				exitcode = true;
 			}
 	     while (true && !exitcode)
          {
@@ -126,18 +131,19 @@ public class DictionaryConsumer implements BundleActivator {
 					System.out.println("Word removed successfully!");
 				}else {
 					exitcode = true;
+					//input.close();
 					break;
 				}
-	    	}catch (NumberFormatException e) {
+	    	}catch (NumberFormatException | IOException e) {
 	    		exitcode = true;
 				break;
 			}catch (DictionaryException | IndexOutOfBoundsException | NullPointerException e) {
 	    		System.out.println("Exception caught:"+wordDictionary.getSimpleName()+" ex="+e.getMessage());
 			}
          }
-	     input.close();
+	    
 	     System.out.println("Dictionary Word Adder Stopping!");
-	     stop(context);
+	     //stop(context);
 	}
 	private static void showOutput(String newword,String type,String meaning) {
 		System.out.println("Word:" + newword);
@@ -148,12 +154,13 @@ public class DictionaryConsumer implements BundleActivator {
 	@Override
 	public void stop(BundleContext context) throws Exception {
 		// auto commit at end
+		/*
 		if(dictionary_tracker!=null) {
 			if(!commited) {
 			 	WordDictionary wordDictionary = (WordDictionary) dictionary_tracker.getService();
 				wordDictionary.Commit();
 			}
-		}
+		}*/
 		System.out.println("Dictionary Word Adder Stopped!");
 	}
 
