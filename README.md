@@ -2,15 +2,16 @@
 Group project for Software Architecture Assignment 01   
 Topic: **PortableDictionary For Chatbot**
 <pre>
+Currently Targetted Languages: English, Sinhala
 Scenario 01: Dictionary usage  
   Producer: Word Dictionary  
-  Consumer: Addnew, edit, getall, remove  
+  Consumer: Use the Word Dictionary service to handle a language
 Scenario 02: Translation  
-  Producer: Translator + Word Dictionary  
-  Consumer: Translation, mapping words  
+  Producer: Translator + Word Dictionary Service    
+  Consumer: Translation of words and sentences to and fro 
 Scenario 03 (Changed): Simple ChatBot  
-  Producer: ChatBotService + Word Dictionary  
-  Consumer: ChatBotUser  
+  Producer: ChatBotService + Word Dictionary Service  
+  Consumer: ChatBotClient to interact with chatbot (English only)
 </pre>
 #### External Libraries 
 <pre>
