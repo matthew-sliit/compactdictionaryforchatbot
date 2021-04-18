@@ -31,7 +31,10 @@ if( Test-Path -path "$classesDir" -pathtype container ){
     jar cfm output\translator.jar src\producer\translator\translatorservice_manifest.mf -C classes \producer\translator
     "generating translator Client"
     jar cfm output\translatoruser.jar src\consumer\translator\translatoruser_manifest.mf -C classes \consumer\translator
-    
+    "generating chatbot Service"
+    jar cfm output\botsvc.jar src\producer\chatbot\manifest_chatbot.mf -C classes \producer\chatbot
+    "generating chatbot Client"
+    jar cfm output\botclient.jar src\consumer\chatbot\manifest_chatbotuser.mf -C classes \consumer\chatbot
     #jar tf output\dictionary.jar
 
     #jar tf output\dictionaryuser.jar
