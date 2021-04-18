@@ -26,7 +26,7 @@ public class TranslatorProvider implements BundleActivator {
 		WordDictionary english = null, sinhala = null;
 		enDictionary_tracker = new ServiceTracker(m_context,m_context.createFilter("(&(objectClass=" + WordDictionary.class.getName() + ")" +"(language_code=EN))"),null);
 		enDictionary_tracker.open();
-		snDictionary_tracker = new ServiceTracker(m_context,m_context.createFilter("(&(objectClass=" + WordDictionary.class.getName() + ")" +"(language_code=SN))"),null);
+		snDictionary_tracker = new ServiceTracker(m_context,m_context.createFilter("(&(objectClass=" + WordDictionary.class.getName() + ")" +"(language_code=ES))"),null);
 		snDictionary_tracker.open();
 		//get dictionary services
 		english = (WordDictionary) enDictionary_tracker.getService();

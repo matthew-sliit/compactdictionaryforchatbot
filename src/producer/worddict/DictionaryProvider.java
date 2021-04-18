@@ -13,13 +13,19 @@ public class DictionaryProvider implements BundleActivator {
 		// TODO Auto-generated method stub
 		Hashtable<String, String> props = new Hashtable<String, String>();
         props.put("language_code", "EN");
-        //register service
+        //register service for dictionary
+        //english
         context.registerService(WordDictionary.class.getName(), new EnglishDictionary(), props);
         props.clear();
+        //sinhala
         props.put("language_code", "SN");
         context.registerService(WordDictionary.class.getName(), new SinhalaDictionary(), props);
-        
         props.clear();
+        //spanish
+        props.put("language_code", "ES");
+        context.registerService(WordDictionary.class.getName(), new SpanishDictionary(), props);
+        props.clear();
+        //generic - any
         props.put("language_code", "g$");
         context.registerService(WordDictionary.class.getName(), new GenericDictionary(), props);
 		System.out.println("Dictionary services registered and started successfully");	
@@ -28,7 +34,7 @@ public class DictionaryProvider implements BundleActivator {
 	@Override
 	public void stop(BundleContext context) throws Exception {
 		// TODO Auto-generated method stub
-
+		System.out.println("Dictionary Services Stopped!");
 	}
 
 }
