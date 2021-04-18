@@ -63,7 +63,6 @@ Scenario 03 (Changed): Simple ChatBot
 ├───bin
 │       felix.jar
 │       gson-2.8.6.jar
-│
 ├───bundle
 │       gson-2.8.6.jar
 │       jansi-1.18.jar
@@ -71,12 +70,14 @@ Scenario 03 (Changed): Simple ChatBot
 │       org.apache.felix.gogo.command-1.1.2.jar
 │       org.apache.felix.gogo.runtime-1.1.4.jar
 │       org.apache.felix.gogo.shell-1.1.4.jar
-|
+├───conf
+│       config.properties
 ├───output
 │       botclient.jar
 │       botsvc.jar
 │       dictionary.jar
-│       dictionaryuser.jar
+│       endictionary.jar
+│       esdictionary.jar
 │       translator.jar
 │       translatoruser.jar
 │   
@@ -91,8 +92,13 @@ Scenario 03 (Changed): Simple ChatBot
     │   │       translatoruser_manifest.mf
     │   │
     │   └───worddict
-    │           DictionaryConsumer.java
-    │           dictionaryuser_manifest.mf
+    │       ├───en
+    │       │       DictionaryConsumer.java
+    │       │       dictionaryuser_manifest.mf
+    │       │
+    │       └───es
+    │               DictionarySpanishConsumer.java
+    │               dictionaryuser_manifest.mf
     │
     ├───producer
     │   ├───chatbot
@@ -165,6 +171,7 @@ Scenario 03 (Changed): Simple ChatBot
         │       SpanishWordToFrenchWordTest.java
         │       TestEnglishSentenceToSinhalaSentence.java
         │       TestEnglishWordToSinhala.java
+        │       TestSentenceTranslatorEN2ES.java
         │
         └───worddict
                 DictionaryTest.java
