@@ -15,24 +15,24 @@ Scenario 03 (Changed): Simple ChatBot
 </pre>
 #### External Libraries 
 <pre>
-  Dependencies: gson-2.8.6.jar, felix-7.0.0.jar
+  Dependencies: gson-2.8.6.jar, felix-7.0.0.jar, org.apache.felix.gogo.shell-1.1.4.jar 
 </pre>
 ### Task List:
 - [x] WordDictionary
    - [x] English Dictionary (Amanda)
-   - [x] Sinhala Dictionary (Deshani)
+   - [x] Spanish Dictionary (Deshani)
    - [x] Dictionary Exception handling
    - [x] Interaction Terminal for Dictionary inputs
       - [x] English Dictionary handling (Amanda)
-      - [x] Sinhala Dictionary handling (Deshani)
+      - [x] Spanish Dictionary handling (Deshani)
    - [x] Save words as preferences using gson
 - [x] Sentence Translator
-   - [x] English to Sinhala concept
-   - [x] English Sentence to Sinhala Sentence
+   - [x] English to Spanish concept
+   - [x] English Sentence to Spanish Sentence
    - [x] Save translated sentences as preferences using gson
    - [x] Run Experiments 
 - [x] Word Translator
-   - [x] English to Sinhala
+   - [x] English to Spanish
    - [x] Interaction Terminal
    - [x] Save translated words as preferences using gson
 - [ ] English Language Sentence Checker:Failed DeadEND
@@ -42,6 +42,7 @@ Scenario 03 (Changed): Simple ChatBot
    - [x] Generate Meaningful reply for given input  
    - [x] Multithread  
    - [x] Use Dictionary services  
+   - [x] Try using Translator services
    - [ ] Experiment, Identify Strengths and Weaknesses 
 - [x] Add Apache Felix framework
 - [x] Add OSGi Activator classes
@@ -53,7 +54,7 @@ Scenario 03 (Changed): Simple ChatBot
 |Allocation|contributor|
 |-|-|
 |English Dictionary|[Amanda](https://github.com/amandaaaim)|
-|Sinhala Dictionary|[Deshani](https://github.com/DeshaniMAWD)|
+|Spanish Dictionary|[Deshani](https://github.com/DeshaniMAWD)|
 |Translator|[Vidura](https://github.com/vidurasathsara99)|
 |Simple Chatbot|Me|
 
@@ -62,7 +63,6 @@ Scenario 03 (Changed): Simple ChatBot
 ├───bin
 │       felix.jar
 │       gson-2.8.6.jar
-│
 ├───bundle
 │       gson-2.8.6.jar
 │       jansi-1.18.jar
@@ -70,12 +70,14 @@ Scenario 03 (Changed): Simple ChatBot
 │       org.apache.felix.gogo.command-1.1.2.jar
 │       org.apache.felix.gogo.runtime-1.1.4.jar
 │       org.apache.felix.gogo.shell-1.1.4.jar
-|
+├───conf
+│       config.properties
 ├───output
 │       botclient.jar
 │       botsvc.jar
 │       dictionary.jar
-│       dictionaryuser.jar
+│       endictionary.jar
+│       esdictionary.jar
 │       translator.jar
 │       translatoruser.jar
 │   
@@ -90,8 +92,13 @@ Scenario 03 (Changed): Simple ChatBot
     │   │       translatoruser_manifest.mf
     │   │
     │   └───worddict
-    │           DictionaryConsumer.java
-    │           dictionaryuser_manifest.mf
+    │       ├───en
+    │       │       DictionaryConsumer.java
+    │       │       dictionaryuser_manifest.mf
+    │       │
+    │       └───es
+    │               DictionarySpanishConsumer.java
+    │               dictionaryuser_manifest.mf
     │
     ├───producer
     │   ├───chatbot
@@ -164,6 +171,7 @@ Scenario 03 (Changed): Simple ChatBot
         │       SpanishWordToFrenchWordTest.java
         │       TestEnglishSentenceToSinhalaSentence.java
         │       TestEnglishWordToSinhala.java
+        │       TestSentenceTranslatorEN2ES.java
         │
         └───worddict
                 DictionaryTest.java
