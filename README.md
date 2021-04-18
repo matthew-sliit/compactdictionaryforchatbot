@@ -1,6 +1,6 @@
 # PortableDictionaryOSGi
 Group project for Software Architecture Assignment 01   
-Topic: **PortableDictionary With OSGi**
+Topic: **PortableDictionary For Chatbot**
 <pre>
 Scenario 01: Dictionary usage  
   Producer: Word Dictionary  
