@@ -21,14 +21,16 @@ if( Test-Path -path "$classesDir" -pathtype container ){
       ROBOCOPY "$classesDir" "$projectDir\output" /mir
     }
     javac -version 
-    "generating worddict Producer"
-    jar cfm output\dictionary.jar src\producer\worddict\dictionaryservice_manifest.mf -C output \producer\worddict
-    "generating worddict Consumer"
-    jar cfm output\dictionaryuser.jar src\consumer\worddict\dictionaryuser_manifest.mf -C output \consumer\worddict
-    "generating translator Producer"
-    jar cfm output\translator.jar src\producer\translator\translatorservice_manifest.mf -C output \producer\translator
-    "generating translator Consumer"
-    jar cfm output\translatoruser.jar src\consumer\translator\translatoruser_manifest.mf -C output \consumer\translator
+    "generating dictionary Service"
+    jar cfm output\dictionary.jar src\producer\worddict\dictionaryservice_manifest.mf -C classes \producer\worddict
+    "generating dictionary English Client"
+    jar cfm output\esdictionary.jar src\consumer\worddict\en\dictionaryuser_manifest.mf -C classes \consumer\worddict\en
+    "generating dictionary Spanish Client"
+    jar cfm output\endictionary.jar src\consumer\worddict\es\dictionaryuser_manifest.mf -C classes \consumer\worddict\es
+    "generating translator Service"
+    jar cfm output\translator.jar src\producer\translator\translatorservice_manifest.mf -C classes \producer\translator
+    "generating translator Client"
+    jar cfm output\translatoruser.jar src\consumer\translator\translatoruser_manifest.mf -C classes \consumer\translator
     
     #jar tf output\dictionary.jar
 
