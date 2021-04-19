@@ -1,0 +1,10 @@
+Currently Targeted Languages: English, Spanish
+Scenario 01: Dictionary usage  
+  Producer: Word Dictionary  
+  Consumer: Use the Word Dictionary service to handle a language
+Scenario 02: Translation  
+  Producer: Translator + Word Dictionary Service    
+  Consumer: Translation of words and sentences to and fro 
+Scenario 03 (Changed): Simple ChatBot  
+  Producer: ChatBotService + Word Dictionary Service  
+  Consumer: ChatBotClient to interact with chatbot (English only)
