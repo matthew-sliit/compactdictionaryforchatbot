@@ -44,14 +44,14 @@ public class BotMind implements ChatbotMemory{
 			json1 = gson.toJson(deepmem);//convert hashmap to json string
 			preferences.put(deepmemoryname, json1);//store in preferences
 		}
-		
+		/*
 		System.out.println("saved!");
 		for(Map.Entry<String, String> e:lightmem.entrySet()) {
 			System.out.println("lightmem:"+e.getKey() + " -> "+e.getValue());
 		}
 		for(Entry<String, ArrayList<String>> e:deepmem.entrySet()) {
 			System.out.println("deepmem:"+e.getKey() + " -> "+e.getValue().toString());
-		}
+		}*/
 	}
 	@Override
 	public void recallLighMemoryUsingGSON() {
@@ -72,6 +72,8 @@ public class BotMind implements ChatbotMemory{
 	}
 	@Override
 	public void brainwash() {
+		lightmem = new ConcurrentHashMap<String, String>();
+		deepmem = new ConcurrentHashMap<String, ArrayList<String>>();
 		//remove all
 		preferences.remove(lighmemoryname);
 		preferences.remove(deepmemoryname);
@@ -109,10 +111,21 @@ public class BotMind implements ChatbotMemory{
 	}
 	@Override
 	public String getValueFromLightMemory(String keyword) {
-		if(!lightmem.containsKey(keyword)) {
-			return "";
+		try {
+		if(lightmem.containsKey(keyword) || lightmem.containsValue(keyword)) {
+			for(Map.Entry<String, String> entry : lightmem.entrySet()) {
+				if(keyword.equals(entry.getKey())){
+					return entry.getValue();
+				}
+				if(keyword.equals(entry.getValue())) {
+					return entry.getKey();
+				}
+			}
+			return null;
 		}
-		return lightmem.get(keyword);
+		}catch (NullPointerException e) {
+		}
+		return null;		
 	}
 	@Override
 	public ConcurrentHashMap<String, String> retrieveLighMemory() {

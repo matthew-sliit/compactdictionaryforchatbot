@@ -77,7 +77,7 @@ public abstract class EnglishSentenceStructure {
 	//listen to these words: set1 
 	public static final String[] LIKES = {"like","want","wish"};
 	//listen to these words: set2
-	public static final String[] LISTENWORDS = {"go","dream","buy","get","have"};//for saving in deep memory
+	public static final String[] LISTENWORDS = {"go","dream","buy","get","have","visit"};//for saving in deep memory
 	//greet
 	public static final String[] greet = {"hello","welcome","Hey","hi"};
 	//about bot

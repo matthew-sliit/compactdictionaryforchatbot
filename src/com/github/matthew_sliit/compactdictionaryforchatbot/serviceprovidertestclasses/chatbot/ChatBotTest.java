@@ -4,8 +4,8 @@ import java.util.Scanner;
 
 import com.github.matthew_sliit.compactdictionaryforchatbot.serviceproviders.chatbot.EnglishChatbot;
 import com.github.matthew_sliit.compactdictionaryforchatbot.serviceproviders.chatbot.service.ChatbotService;
-import com.github.matthew_sliit.compactdictionaryforchatbot.serviceproviders.translator.EnglishSentenceToSinhalaSentence;
-import com.github.matthew_sliit.compactdictionaryforchatbot.serviceproviders.translator.EnglishWordToSinhalaWord;
+import com.github.matthew_sliit.compactdictionaryforchatbot.serviceproviders.translator.EnglishSentenceToSpanishSentence;
+import com.github.matthew_sliit.compactdictionaryforchatbot.serviceproviders.translator.EnglishWordToSpanishWord;
 import com.github.matthew_sliit.compactdictionaryforchatbot.serviceproviders.translator.service.SentenceTranslator;
 import com.github.matthew_sliit.compactdictionaryforchatbot.serviceproviders.worddict.GenericDictionary;
 import com.github.matthew_sliit.compactdictionaryforchatbot.serviceproviders.worddict.service.WordDictionary;
@@ -13,7 +13,7 @@ import com.github.matthew_sliit.compactdictionaryforchatbot.serviceproviders.wor
 public class ChatBotTest {
 	public static void main(String[] args) {
 		ChatbotService chatbot = new EnglishChatbot(new GenericDictionary("EN","English"));
-		SentenceTranslator stranslator = new EnglishSentenceToSinhalaSentence(new GenericDictionary("EN","English"), new GenericDictionary("ES","Spanish"));
+		SentenceTranslator stranslator = new EnglishSentenceToSpanishSentence(new GenericDictionary("EN","English"), new GenericDictionary("ES","Spanish"));
 		Scanner input; Boolean userIsNative = true;
 		try {
 			input = new Scanner(System.in);
@@ -21,6 +21,7 @@ public class ChatBotTest {
 		    String value, response, prev_response;
 		    System.out.println(">>"+chatbot.greetUser());
 			while(true) {
+				response = null;
 				value = input.nextLine();
 				if(value.isBlank()) {
 					continue;
@@ -28,7 +29,12 @@ public class ChatBotTest {
 					System.out.println("Chatbot Stopped!");
 					break;
 				}else {
-					response = chatbot.generateBotReply(stranslator.getENTranslation(value));
+					try {
+						if(stranslator.getAllSentences().containsValue(value)) {
+							response = chatbot.generateBotReply(stranslator.getENTranslation(value));
+						}	
+					}catch (NullPointerException ignored) {
+					}
 					if(response == null) {
 						//then not foreign
 						response = chatbot.generateBotReply(value);

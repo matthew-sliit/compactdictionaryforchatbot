@@ -4,8 +4,8 @@ import java.util.Map;
 import java.util.Scanner;
 import java.util.StringTokenizer;
 
-import com.github.matthew_sliit.compactdictionaryforchatbot.serviceproviders.translator.EnglishSentenceToSinhalaSentence;
-import com.github.matthew_sliit.compactdictionaryforchatbot.serviceproviders.translator.EnglishWordToSinhalaWord;
+import com.github.matthew_sliit.compactdictionaryforchatbot.serviceproviders.translator.EnglishSentenceToSpanishSentence;
+import com.github.matthew_sliit.compactdictionaryforchatbot.serviceproviders.translator.EnglishWordToSpanishWord;
 import com.github.matthew_sliit.compactdictionaryforchatbot.serviceproviders.translator.common.TranslatorException;
 import com.github.matthew_sliit.compactdictionaryforchatbot.serviceproviders.translator.service.SentenceTranslator;
 import com.github.matthew_sliit.compactdictionaryforchatbot.serviceproviders.translator.service.WordTranslator;
@@ -17,8 +17,8 @@ public class TestSentenceTranslatorEN2ES {
 	public static void main(String[] args) {
 		WordDictionary en = new GenericDictionary("EN","English");
 		WordDictionary sn = new GenericDictionary("ES","Spanish");
-		SentenceTranslator sentTranslator = new EnglishSentenceToSinhalaSentence(en, sn);
-		WordTranslator wordtranslator = new EnglishWordToSinhalaWord(en, sn);
+		SentenceTranslator sentTranslator = new EnglishSentenceToSpanishSentence(en, sn);
+		WordTranslator wordtranslator = new EnglishWordToSpanishWord(en, sn);
 		Scanner input = new Scanner(System.in);
 		String value = "";
 		System.out.println("Dictionary Translator Service Started for EN-to-ES");	

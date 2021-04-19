@@ -15,7 +15,7 @@ import com.github.matthew_sliit.compactdictionaryforchatbot.serviceproviders.wor
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
-public class EnglishWordToSinhalaWord implements WordTranslator {
+public class EnglishWordToSpanishWord implements WordTranslator {
 
 	//HasMap<Spanish word,French word> unoyuno
 	ConcurrentHashMap<String, String> unoyuno = new ConcurrentHashMap<String, String>();
@@ -23,10 +23,10 @@ public class EnglishWordToSinhalaWord implements WordTranslator {
 	WordDictionary sinhala = null;
 	public static final String PREFERENCES_KEY = "ENtoSNWord";
 
-	Preferences preferences = Preferences.userNodeForPackage(EnglishWordToSinhalaWord.class);
+	Preferences preferences = Preferences.userNodeForPackage(EnglishWordToSpanishWord.class);
 	//gson
 	Gson gson = new Gson();
-	public EnglishWordToSinhalaWord(WordDictionary englishDictionary, WordDictionary sinhalaDictionary) {
+	public EnglishWordToSpanishWord(WordDictionary englishDictionary, WordDictionary sinhalaDictionary) {
 		this.english = englishDictionary; this.sinhala = sinhalaDictionary;
 		unoyuno = new ConcurrentHashMap<String, String>();
 		//get all from preferences

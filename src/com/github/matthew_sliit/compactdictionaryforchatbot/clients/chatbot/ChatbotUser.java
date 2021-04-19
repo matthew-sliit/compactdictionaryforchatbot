@@ -10,7 +10,6 @@ import org.osgi.util.tracker.ServiceTracker;
 import com.github.matthew_sliit.compactdictionaryforchatbot.serviceproviders.chatbot.service.ChatbotService;
 import com.github.matthew_sliit.compactdictionaryforchatbot.serviceproviders.translator.service.SentenceTranslator;
 import com.github.matthew_sliit.compactdictionaryforchatbot.serviceproviders.worddict.commons.DictionaryException;
-import com.github.matthew_sliit.compactdictionaryforchatbot.serviceproviders.worddict.service.WordDictionary;
 
 public class ChatbotUser implements BundleActivator {
 	// Bundle's context.
@@ -36,7 +35,8 @@ public class ChatbotUser implements BundleActivator {
 			System.out.println("Chatbot service provider unavailable!");
 		}
 		//track for translator Service, needed for different languages
-		translatorsvc_tracker = new ServiceTracker(m_context,m_context.createFilter("(&(objectClass=" + ChatbotService.class.getName() + ")" +"(translation=EN2SN_Sentence))"),null);
+		translatorsvc_tracker = new ServiceTracker(m_context,m_context.createFilter("(&(objectClass=" + SentenceTranslator.class.getName() + ")" +"(translation=EN2SN_Sentence))"),null);
+		translatorsvc_tracker.open();
 		SentenceTranslator stranslator = (SentenceTranslator) translatorsvc_tracker.getService();
 		try {
 			if(stranslator == null) {

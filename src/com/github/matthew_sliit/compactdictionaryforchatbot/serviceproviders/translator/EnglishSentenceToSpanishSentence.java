@@ -12,7 +12,7 @@ import com.github.matthew_sliit.compactdictionaryforchatbot.serviceproviders.wor
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
-public class EnglishSentenceToSinhalaSentence implements SentenceTranslator {
+public class EnglishSentenceToSpanishSentence implements SentenceTranslator {
 
 	    //HasMap<Spanish word,French word> unoyuno
 		//HashMap<String, String> unoyuno = new HashMap<String, String>();
@@ -20,10 +20,10 @@ public class EnglishSentenceToSinhalaSentence implements SentenceTranslator {
 		WordDictionary sinhala = null;
 		public static final String PREFERENCES_KEY = "EN2SNSentences";
 		ConcurrentHashMap<String, String> sentences;
-		Preferences preferences = Preferences.userNodeForPackage(EnglishSentenceToSinhalaSentence.class);
+		Preferences preferences = Preferences.userNodeForPackage(EnglishSentenceToSpanishSentence.class);
 		//gson
 		Gson gson = new Gson();
-		public EnglishSentenceToSinhalaSentence(WordDictionary englishDictionary, WordDictionary sinhalaDictionary) {
+		public EnglishSentenceToSpanishSentence(WordDictionary englishDictionary, WordDictionary sinhalaDictionary) {
 		   this.english = englishDictionary; this.sinhala = sinhalaDictionary;
 		   sentences=new ConcurrentHashMap<String, String>();
 		   //get all from preferences
@@ -102,7 +102,7 @@ public class EnglishSentenceToSinhalaSentence implements SentenceTranslator {
 			preferences.remove(PREFERENCES_KEY);
 			try {
 				preferences.removeNode();
-				preferences = Preferences.userNodeForPackage(EnglishSentenceToSinhalaSentence.class);
+				preferences = Preferences.userNodeForPackage(EnglishSentenceToSpanishSentence.class);
 			} catch (BackingStoreException ignored) {}
 			selfUpdate();
 		}

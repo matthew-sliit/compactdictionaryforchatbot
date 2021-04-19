@@ -1,5 +1,5 @@
-$projectDir = 'F:\eclipse-workspace\Sliit\PortableDictionaryOSGi'
-$classesDir = 'F:\eclipse-workspace\Sliit\PortableDictionaryOSGi\classes'
+$projectDir = 'C:\Users\matth\git\compactdictionaryforchatbot'
+$classesDir = 'C:\Users\matth\git\compactdictionaryforchatbot\classes'
 Set-Location $projectDir
 if( Test-Path -path "$classesDir" -pathtype container ){
   if(-not (Test-Path -path "$projectDir\output" -pathtype container)){
@@ -41,7 +41,7 @@ if( Test-Path -path "$classesDir" -pathtype container ){
 
     #jar tf output\dictionaryuser.jar
 
-    #install File:F:/eclipse-workspace/Sliit/PortableDictionaryOSGi/output/dictionary.jar
+    #install File:C:/Users/matth/git/compactdictionaryforchatbot/output/dictionary.jar
 
     #install File:F:/eclipse-workspace/Sliit/PortableDictionaryOSGi/output/dictionaryuser.jar
 

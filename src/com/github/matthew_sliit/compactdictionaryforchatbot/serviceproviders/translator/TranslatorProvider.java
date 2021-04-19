@@ -12,7 +12,6 @@ import org.osgi.util.tracker.ServiceTracker;
 import com.github.matthew_sliit.compactdictionaryforchatbot.serviceproviders.translator.common.TranslatorException;
 import com.github.matthew_sliit.compactdictionaryforchatbot.serviceproviders.translator.service.SentenceTranslator;
 import com.github.matthew_sliit.compactdictionaryforchatbot.serviceproviders.translator.service.WordTranslator;
-import com.github.matthew_sliit.compactdictionaryforchatbot.serviceproviders.worddict.EnglishDictionary;
 import com.github.matthew_sliit.compactdictionaryforchatbot.serviceproviders.worddict.commons.DictionaryException;
 import com.github.matthew_sliit.compactdictionaryforchatbot.serviceproviders.worddict.service.WordDictionary;
 
@@ -39,10 +38,10 @@ public class TranslatorProvider implements BundleActivator {
 		Hashtable<String, String> props = new Hashtable<String, String>();
         props.put("translation", "EN2SN_Word");
         //register service
-        context.registerService(WordTranslator.class.getName(), new EnglishWordToSinhalaWord(english,sinhala), props);
+        context.registerService(WordTranslator.class.getName(), new EnglishWordToSpanishWord(english,sinhala), props);
         props.clear();
         props.put("translation", "EN2SN_Sentence");
-        context.registerService(SentenceTranslator.class.getName(), new EnglishSentenceToSinhalaSentence(english,sinhala), props);
+        context.registerService(SentenceTranslator.class.getName(), new EnglishSentenceToSpanishSentence(english,sinhala), props);
         System.out.println("Translator Service Started!");
 	}
 

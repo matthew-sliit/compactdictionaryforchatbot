@@ -89,7 +89,10 @@ public class SentenceAnalyzer extends EnglishSentenceStructure implements Runnab
 				if(words.contains("name")) {
 					//what is my name?
 					String username = botmem.getValueFromLightMemory(ChatbotMemory.KEY_USERNAME);
-					if(username.isBlank()) {
+					if(username == null) {
+						generatedReply = "You never told me"; 
+					}
+					else if(username.isBlank()) {
 						generatedReply = "You never told me"; 
 					}else {
 						generatedReply = "Your name is " + username;
@@ -99,8 +102,24 @@ public class SentenceAnalyzer extends EnglishSentenceStructure implements Runnab
 				for(String word:LIKES) {
 					//what do i like?
 					if(words.contains(word)) {
-						String like = botmem.getValueFromLightMemory(word);
-						if(like.isBlank()) {
+						String like = null;
+						ArrayList<String> unkowns = sentenceIdentifier.wordsForType.get(TypeOrder.UNKNOWN.index);
+						if(!unkowns.isEmpty()) {
+							for(String unknown : unkowns) {
+								//System.out.println("unknown: " + unknown);
+								like = botmem.getValueFromLightMemory(unknown);
+								//System.out.println("likes: " + like);
+								if(like != null) {
+									//System.out.println("likes: " + like);
+									generatedReply = like; 
+									break;
+								}
+							}
+						}
+						if(like == null) {
+							generatedReply = "Tell me";
+						}
+						else if(like.isBlank()) {
 							generatedReply = "Tell me";
 							key1 = word;
 						}else {
@@ -206,6 +225,7 @@ public class SentenceAnalyzer extends EnglishSentenceStructure implements Runnab
 			if(perspectiveIdentifier.personforms[persons.P1SINGULAR.index]>0) {
 				//1st person only, about chatter
 				//do you know what i like? do you know me?
+				
 			}
 		}
 		//sentence does NOT start with question words, but can have question mark in the end
@@ -275,6 +295,7 @@ public class SentenceAnalyzer extends EnglishSentenceStructure implements Runnab
 			try {
 				whateveritis = whateveritis.substring(0, whateveritis.length()-1);
 			}catch (IndexOutOfBoundsException e) {
+				System.out.println("whateveritis outofbounds!"+whateveritis);
 				exit = true;
 			}
 			if(whateveritis.isBlank() && !exit) {
