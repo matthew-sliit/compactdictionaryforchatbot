@@ -20,21 +20,23 @@ if( Test-Path -path "$classesDir" -pathtype container ){
       "tutorial folder NOT found in output folder, copying all from \classes"
       ROBOCOPY "$classesDir" "$projectDir\output" /mir
     }
+    $producer = "com\github\matthew_sliit\compactdictionaryforchatbot\serviceproviders"
+    $consumer = "com\github\matthew_sliit\compactdictionaryforchatbot\clients"
     javac -version 
     "generating dictionary Service"
-    jar cfm output\dictionary.jar src\producer\worddict\dictionaryservice_manifest.mf -C classes \producer\worddict
+    jar cfm output\dictionary.jar src\$producer\worddict\dictionaryservice_manifest.mf -C classes \$producer\worddict
     "generating dictionary English Client"
-    jar cfm output\esdictionary.jar src\consumer\worddict\en\dictionaryuser_manifest.mf -C classes \consumer\worddict\en
+    jar cfm output\dictionary-en-client.jar src\$consumer\worddict\en\dictionaryuser_manifest.mf -C classes \$consumer\worddict\en
     "generating dictionary Spanish Client"
-    jar cfm output\endictionary.jar src\consumer\worddict\es\dictionaryuser_manifest.mf -C classes \consumer\worddict\es
+    jar cfm output\dictionary-es-client.jar src\$consumer\worddict\es\dictionaryuser_manifest.mf -C classes \$consumer\worddict\es
     "generating translator Service"
-    jar cfm output\translator.jar src\producer\translator\translatorservice_manifest.mf -C classes \producer\translator
+    jar cfm output\translator.jar src\$producer\translator\translatorservice_manifest.mf -C classes \$producer\translator
     "generating translator Client"
-    jar cfm output\translatoruser.jar src\consumer\translator\translatoruser_manifest.mf -C classes \consumer\translator
+    jar cfm output\translatoruser.jar src\$consumer\translator\translatoruser_manifest.mf -C classes \$consumer\translator
     "generating chatbot Service"
-    jar cfm output\botsvc.jar src\producer\chatbot\manifest_chatbot.mf -C classes \producer\chatbot
+    jar cfm output\botsvc.jar src\$producer\chatbot\manifest_chatbot.mf -C classes \$producer\chatbot
     "generating chatbot Client"
-    jar cfm output\botclient.jar src\consumer\chatbot\manifest_chatbotuser.mf -C classes \consumer\chatbot
+    jar cfm output\botclient.jar src\$consumer\chatbot\manifest_chatbotuser.mf -C classes \$consumer\chatbot
     #jar tf output\dictionary.jar
 
     #jar tf output\dictionaryuser.jar

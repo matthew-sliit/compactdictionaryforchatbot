@@ -1,0 +1,8 @@
+Bundle-Name: Translation Service Provider for English and Spanish
+Bundle-SymbolicName: com.github.matthew_sliit.compactdictionaryforchatbot
+Bundle-Description: A bundle that registers the English and Spanish translator service
+Bundle-Vendor: EagleEyes
+Bundle-Version: 1.0.0
+Bundle-Activator: com.github.matthew_sliit.compactdictionaryforchatbot.serviceproviders.translator.TranslatorProvider
+Export-Package: com.github.matthew_sliit.compactdictionaryforchatbot.serviceproviders.translator.service, com.github.matthew_sliit.compactdictionaryforchatbot.serviceproviders.translator.common, com.github.matthew_sliit.compactdictionaryforchatbot.serviceproviders.worddict.service, com.github.matthew_sliit.compactdictionaryforchatbot.serviceproviders.worddict.commons
+Import-Package: org.osgi.framework, org.osgi.util.tracker, com.google.gson;version="2.8.6", com.google.gson.reflect, com.github.matthew_sliit.compactdictionaryforchatbot.serviceproviders.worddict.service, com.github.matthew_sliit.compactdictionaryforchatbot.serviceproviders.worddict.commons

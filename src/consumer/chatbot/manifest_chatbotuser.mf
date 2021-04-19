@@ -1,6 +1,0 @@
-Bundle-Name: Chatbot Client
-Bundle-Description: A Chatbot client using the Service Tracker.
-Bundle-Vendor: Apache Felix
-Bundle-Version: 1.0.0
-Bundle-Activator: consumer.chatbot.ChatbotUser
-Import-Package: org.osgi.framework, org.osgi.util.tracker, com.google.gson, com.google.gson.reflect, producer.worddict.service, producer.worddict.commons, producer.chatbot.service, producer.chatbot.commons

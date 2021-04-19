@@ -1,0 +1,7 @@
+Bundle-Name: Translation Client
+Bundle-SymbolicName: com.github.matthew_sliit.compactdictionaryforchatbot
+Bundle-Description: A translator client for translation using the translator and dictionary services.
+Bundle-Vendor: EagleEyes
+Bundle-Version: 1.0.0
+Bundle-Activator: com.github.matthew_sliit.compactdictionaryforchatbot.clients.translator.TranslatorConsumer
+Import-Package: org.osgi.framework, org.osgi.util.tracker, com.google.gson, com.google.gson.reflect, com.github.matthew_sliit.compactdictionaryforchatbot.serviceproviders.translator.service, com.github.matthew_sliit.compactdictionaryforchatbot.serviceproviders.translator.common, com.github.matthew_sliit.compactdictionaryforchatbot.serviceproviders.worddict.service, com.github.matthew_sliit.compactdictionaryforchatbot.serviceproviders.worddict.commons 

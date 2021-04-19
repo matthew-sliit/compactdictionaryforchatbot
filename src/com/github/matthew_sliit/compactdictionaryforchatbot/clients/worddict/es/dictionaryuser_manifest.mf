@@ -1,0 +1,7 @@
+Bundle-Name: Spanish Dictionary Client
+Bundle-SymbolicName: com.github.matthew_sliit.compactdictionaryforchatbot
+Bundle-Description: A dictionary client to interact with the SpanishDictionary.
+Bundle-Vendor: EagleEyes
+Bundle-Version: 1.0.0
+Bundle-Activator: com.github.matthew_sliit.compactdictionaryforchatbot.clients.worddict.es.DictionarySpanishConsumer
+Import-Package: org.osgi.framework, org.osgi.util.tracker, com.google.gson, com.google.gson.reflect, com.github.matthew_sliit.compactdictionaryforchatbot.serviceproviders.worddict.service, com.github.matthew_sliit.compactdictionaryforchatbot.serviceproviders.worddict.commons

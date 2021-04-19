@@ -1,0 +1,10 @@
+Bundle-Name: Chatbot Client
+Bundle-SymbolicName: com.github.matthew_sliit.compactdictionaryforchatbot
+Bundle-Description: A Chatbot client to interact with chatbot service provider.
+Bundle-Vendor: EagleEyes
+Bundle-Version: 1.0.0
+Bundle-Activator: com.github.matthew_sliit.compactdictionaryforchatbot.clients.chatbot.ChatbotUser
+Import-Package: org.osgi.framework, org.osgi.util.tracker, com.google.gson, com.google.gson.reflect, com.github.matthew_sliit.compactdictionaryforchatbot.serviceproviders.worddict.service, 
+ com.github.matthew_sliit.compactdictionaryforchatbot.serviceproviders.worddict.commons, 
+ com.github.matthew_sliit.compactdictionaryforchatbot.serviceproviders.chatbot.service, com.github.matthew_sliit.compactdictionaryforchatbot.serviceproviders.chatbot.commons, 
+ com.github.matthew_sliit.compactdictionaryforchatbot.serviceproviders.translator.service, com.github.matthew_sliit.compactdictionaryforchatbot.serviceproviders.translator.common
