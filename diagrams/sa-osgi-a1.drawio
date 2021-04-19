@@ -1,12 +1,25 @@
-<mxfile host="app.diagrams.net" modified="2021-04-19T07:56:09.652Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.128 Safari/537.36" etag="GFmtIBzXj-UWQdDzkxbR" version="14.6.1" type="github">
-  <diagram id="yPjKVgYsnCd9kTvplsF-" name="Page-1">
+<mxfile host="app.diagrams.net" modified="2021-04-19T07:58:56.682Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.128 Safari/537.36" etag="1earnCef10eiGc9BGLAw" version="14.6.1" type="github" pages="3">
+  <diagram id="yPjKVgYsnCd9kTvplsF-" name="dictionary-scenario">
     <mxGraphModel dx="1422" dy="794" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="oCUMNOuKAhl6QYnkdfp7-1" value="LOL&lt;br&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
-          <mxGeometry x="360" y="300" width="40" height="20" as="geometry" />
-        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="-kq18H6BxzsgiepciD7F" name="translator-scenario">
+    <mxGraphModel dx="1422" dy="794" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="Kvsw5OrLsdX1IoLE7TAO-0" />
+        <mxCell id="Kvsw5OrLsdX1IoLE7TAO-1" parent="Kvsw5OrLsdX1IoLE7TAO-0" />
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="V3btBKD6Lkb8V-PPj-VW" name="chatbot-scenario">
+    <mxGraphModel dx="1422" dy="794" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="SBxdAudHn4qQ-Q9jw4Up-0" />
+        <mxCell id="SBxdAudHn4qQ-Q9jw4Up-1" parent="SBxdAudHn4qQ-Q9jw4Up-0" />
       </root>
     </mxGraphModel>
   </diagram>
