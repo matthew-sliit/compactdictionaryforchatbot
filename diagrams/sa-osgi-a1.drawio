@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2021-04-19T11:00:31.273Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.128 Safari/537.36" etag="noP-nC2ssEuXTtY2QNJE" version="14.6.1" type="github" pages="3">
+<mxfile host="app.diagrams.net" modified="2021-04-19T11:01:53.354Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.128 Safari/537.36" etag="EXtG-JRRCMCFLchLFkKL" version="14.6.1" type="github" pages="3">
   <diagram id="yPjKVgYsnCd9kTvplsF-" name="dictionary-scenario">
-    <mxGraphModel grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" page="1" fold="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1038" dy="532" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -899,6 +899,9 @@
         </mxCell>
         <mxCell id="oDyKiAPmLmzpmuTu8rHi-1" value="sd_Translator" style="shape=umlFrame;whiteSpace=wrap;html=1;fontSize=11;width=70;height=30;" vertex="1" parent="Kvsw5OrLsdX1IoLE7TAO-1">
           <mxGeometry x="-20" y="-1" width="680" height="1101" as="geometry" />
+        </mxCell>
+        <mxCell id="al5TuHrn-YWz22IB29J2-0" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;fontSize=11;dashed=1;direction=south;" vertex="1" parent="Kvsw5OrLsdX1IoLE7TAO-1">
+          <mxGeometry x="27" y="865" width="8" height="40" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
