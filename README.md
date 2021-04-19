@@ -1,6 +1,5 @@
 # PortableDictionary For Chatbot with OSGi
 Group project for Software Architecture Assignment 01   
-Topic: **PortableDictionary For Chatbot**
 <pre>
 Currently Targetted Languages: English, Sinhala
 Scenario 01: Dictionary usage  
