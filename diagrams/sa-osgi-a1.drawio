@@ -1,14 +1,26 @@
-<mxfile host="app.diagrams.net" modified="2021-04-19T08:17:31.302Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.128 Safari/537.36" etag="vb8SaaSTWWg1-cS2OwZW" version="14.6.1" type="github" pages="3">
+<mxfile host="app.diagrams.net" modified="2021-04-19T08:19:55.278Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.128 Safari/537.36 Edg/89.0.774.77" etag="XstZ4sqR29Ecjf1Nvil-" version="14.6.1" type="github" pages="3">
   <diagram id="yPjKVgYsnCd9kTvplsF-" name="dictionary-scenario">
-    <mxGraphModel dx="1038" dy="532" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1038" dy="580" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
+        <mxCell id="TZk_NSsHPCSYtF1DZsgs-1" value="DictionaryInterface" style="shape=umlLifeline;participant=umlBoundary;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;verticalAlign=top;spacingTop=36;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="250" y="40" width="50" height="300" as="geometry" />
+        </mxCell>
+        <mxCell id="TZk_NSsHPCSYtF1DZsgs-2" value="DictionaryProducer&amp;nbsp;" style="shape=umlLifeline;participant=umlEntity;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;verticalAlign=top;spacingTop=36;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="660" y="40" width="40" height="300" as="geometry" />
+        </mxCell>
+        <mxCell id="TZk_NSsHPCSYtF1DZsgs-3" value="DictionaryControlller" style="shape=umlLifeline;participant=umlControl;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;verticalAlign=top;spacingTop=36;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="480" y="40" width="40" height="300" as="geometry" />
+        </mxCell>
+        <mxCell id="VTtYwQEyznAaiVSkjpEZ-2" value="" style="shape=umlLifeline;participant=umlActor;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;verticalAlign=top;spacingTop=36;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="80" y="40" width="20" height="300" as="geometry" />
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
   <diagram id="-kq18H6BxzsgiepciD7F" name="translator-scenario">
-    <mxGraphModel dx="1038" dy="532" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" page="1" fold="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="Kvsw5OrLsdX1IoLE7TAO-0" />
         <mxCell id="Kvsw5OrLsdX1IoLE7TAO-1" parent="Kvsw5OrLsdX1IoLE7TAO-0" />
@@ -58,7 +70,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="V3btBKD6Lkb8V-PPj-VW" name="chatbot-scenario">
-    <mxGraphModel dx="1038" dy="532" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+    <mxGraphModel dx="1038" dy="580" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
       <root>
         <mxCell id="SBxdAudHn4qQ-Q9jw4Up-0" />
         <mxCell id="SBxdAudHn4qQ-Q9jw4Up-1" parent="SBxdAudHn4qQ-Q9jw4Up-0" />
