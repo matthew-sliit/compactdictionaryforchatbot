@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2021-04-19T11:00:16.839Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.128 Safari/537.36" etag="E8Cwo8SmPmMb8sWrqaoA" version="14.6.1" type="github" pages="3">
+<mxfile host="app.diagrams.net" modified="2021-04-19T11:00:31.273Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.128 Safari/537.36" etag="noP-nC2ssEuXTtY2QNJE" version="14.6.1" type="github" pages="3">
   <diagram id="yPjKVgYsnCd9kTvplsF-" name="dictionary-scenario">
     <mxGraphModel grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" page="1" fold="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -898,7 +898,7 @@
           <mxGeometry y="90" width="640" height="1000" as="geometry" />
         </mxCell>
         <mxCell id="oDyKiAPmLmzpmuTu8rHi-1" value="sd_Translator" style="shape=umlFrame;whiteSpace=wrap;html=1;fontSize=11;width=70;height=30;" vertex="1" parent="Kvsw5OrLsdX1IoLE7TAO-1">
-          <mxGeometry x="-20" y="-1" width="670" height="1101" as="geometry" />
+          <mxGeometry x="-20" y="-1" width="680" height="1101" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
