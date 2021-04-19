@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2021-04-19T08:55:32.256Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.128 Safari/537.36" etag="Ku9pICQINfUGiOETWEC2" version="14.6.1" type="github" pages="3">
+<mxfile host="app.diagrams.net" modified="2021-04-19T09:07:08.687Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.128 Safari/537.36" etag="C7_IfDFurkD7YhGUwln8" version="14.6.1" type="github" pages="3">
   <diagram id="yPjKVgYsnCd9kTvplsF-" name="dictionary-scenario">
     <mxGraphModel dx="1038" dy="532" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -121,8 +121,8 @@
         </mxCell>
         <mxCell id="S7kb6ueFPynrqGwT7eNB-1" value="" style="endArrow=blockThin;endFill=1;endSize=12;html=1;entryX=0.5;entryY=0.067;entryDx=0;entryDy=0;entryPerimeter=0;exitX=1.18;exitY=0.067;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="Kvsw5OrLsdX1IoLE7TAO-1">
           <mxGeometry width="160" relative="1" as="geometry">
-            <mxPoint x="44.799999999999955" y="240.46000000000004" as="sourcePoint" />
-            <mxPoint x="203" y="240.46000000000004" as="targetPoint" />
+            <mxPoint x="42.799999999999955" y="240.46000000000004" as="sourcePoint" />
+            <mxPoint x="201" y="240.46000000000004" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="S7kb6ueFPynrqGwT7eNB-2" value="showallwords()" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;" vertex="1" parent="Kvsw5OrLsdX1IoLE7TAO-1">
@@ -188,14 +188,17 @@
         <mxCell id="367yVyQKEyiUPgAg11H--0" value="UserInterface" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;" vertex="1" parent="Kvsw5OrLsdX1IoLE7TAO-1">
           <mxGeometry x="166" y="89" width="90" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="EXP8ofOsccu20FN5Lvq_-0" value="Preferences" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;" vertex="1" parent="Kvsw5OrLsdX1IoLE7TAO-1">
-          <mxGeometry x="515" y="91" width="80" height="20" as="geometry" />
+        <mxCell id="EXP8ofOsccu20FN5Lvq_-0" value="TranslatorPreferences" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;" vertex="1" parent="Kvsw5OrLsdX1IoLE7TAO-1">
+          <mxGeometry x="485" y="89" width="130" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="LAr1Xamsz6IaIcBv2sZ8-0" value="TranslatorService" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;" vertex="1" parent="Kvsw5OrLsdX1IoLE7TAO-1">
+          <mxGeometry x="318" y="89" width="110" height="20" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
   <diagram id="V3btBKD6Lkb8V-PPj-VW" name="chatbot-scenario">
-    <mxGraphModel grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" page="1" fold="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+    <mxGraphModel dx="1038" dy="532" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
       <root>
         <mxCell id="SBxdAudHn4qQ-Q9jw4Up-0" />
         <mxCell id="SBxdAudHn4qQ-Q9jw4Up-1" parent="SBxdAudHn4qQ-Q9jw4Up-0" />
