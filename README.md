@@ -76,10 +76,10 @@ Scenario 03 (Changed): Simple ChatBot
 │       botclient.jar
 │       botsvc.jar
 │       dictionary.jar
-│       endictionary.jar
-│       esdictionary.jar
+│       dictionary-en-client.jar
+│       dictionary-es-client.jar
 │       translator.jar
-│       translatoruser.jar
+│       translatorservice.jar
 │   
 └───src
     ├───consumer
